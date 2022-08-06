@@ -1,0 +1,390 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+    background-color: aquamarine;
+}
+
+.title{
+    font-size: 50px;
+    text-align: center;
+    color: crimson;
+}
+header{
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo{
+    width: 30%;
+}
+header nav{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 70%;
+}
+
+.logo img{ 
+    height: 80px;
+    width: 100px;
+    margin-top:5px ;
+    margin-left: 10px;
+}
+
+header nav ul{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+header nav ul li a{
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-size: 20px;
+    padding: 10px 20px;
+}
+nav ul li a:hover{
+    color: crimson;
+    background-color: black;
+    border-radius: 15px;
+
+
+}
+
+
+header .menu_btn{
+    font-size: 40px;
+    color: white;
+    display: none;
+}
+
+header #btn{
+    display: none;
+}
+
+#cover{
+    height: 100vh;
+    width: 100%;
+    background-image: url("./img/a.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+#cover .blur{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#cover h1{
+    font-size: 70px;
+    color: orangered;
+}
+
+#cover p{
+    font-size: 25px;
+    color: white;
+}
+#cover button{
+    background-color: blue;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#cover button:hover{
+    background-color: rgb(9, 132, 139);
+}
+
+
+
+#products{
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#products .cards{
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+    width: 25%;
+    margin: 20px;
+}
+
+#products .cards .product_name{
+    margin: 20px 0;
+}
+
+#products .cards .card_title p{
+    margin: 8px 0;
+}
+#products .cards .card_img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#products .cards .card_img img{
+    width: 600px;
+    height: 300px;
+    transition: 0.5s;
+}
+
+#products .cards .card_img img:hover{
+    transform: scale(1.2);
+}
+
+#products .cards .price{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#products .cards .price h2{
+    font-size: 30px;
+    color: orangered;
+}
+#products .cards .price button{
+    background-color: blue;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+#products .cards .price button:hover{
+    background-color: rgb(40, 115, 115);
+}
+
+#others{
+    display: flex;
+}
+
+#others .left, #others .right{
+    width: 50%;
+}
+
+#others .left .box{
+    width: 95%;
+    height: 150px;
+    background-color: white;
+    margin: 20px auto;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#others .left .box .left{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#others .left .box .left img{
+    width: 60%;
+}
+
+#others .left .box .right{
+    width: 70%;
+    align-items: flex-start;
+}
+
+#others .left .box .right h3{
+    text-transform: capitalize;
+    text-align: left;
+}
+
+#others .left .box .right p{
+    text-align: justify;
+}
+
+#others .right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#others .right img{
+    width: 80%;
+}
+
+
+
+
+
+
+
+
+footer p{
+    font-weight: bolder;
+    color: rgb(170, 14, 45);
+    text-align: center;
+}
+
+footer .containt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .containt .containt-box{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px;
+}
+
+footer .containt .containt-box i{
+    font-size: 50px;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    transition: 0.5s;
+}
+
+footer .containt .containt-box i:hover{
+    transform: scale(1.2);
+}
+
+footer .containt .containt-box p{
+    font-size: 20px;
+}
+
+
+#facebook{
+    background-color: blue;
+    color: white;
+}
+
+#youtube{
+    background-color: red;
+    color: white;
+}
+
+#whats{
+    background-color: green;
+    color: white;
+}
+
+#insta{
+    background: linear-gradient(150deg, red, blue);
+    color: white;
+}
+
+
+
+footer h1{
+    color: rgb(8, 2, 3);
+    text-align: center;
+    padding-left: 50px;
+    font-size: 30px;
+}
+
+marquee{
+    color: red;
+    font-weight: bolder;
+}
+
+
+@media screen and (max-width: 500px) {
+    header .menu_btn{
+        display: initial;
+    }
+
+
+    header .logo{
+        width: 80%;
+    }
+
+
+    header nav{
+        display: block;
+        position: absolute;
+        top: 100px;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: blue;
+        transition: 0.5s;
+    }
+
+    #btn:checked ~ nav{
+        left: 0%;
+    }
+
+    
+
+    header nav ul{
+        display: block;
+        text-align: center;
+    }
+
+    header nav ul li a{
+        margin: 20px 0;
+    }
+
+
+    #cover h1{
+        text-align: center;
+        font-size: 50px;
+        margin: 20px;
+    }
+
+    #cover p{
+        text-align: center;
+    }
+
+    #products{
+        display: block;
+    }
+
+    #products .cards{
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    #products .card_title p{
+        color: orangered;
+        font-weight: bold;
+        margin-top: 30px;
+    }
+
+
+    #others{
+        display: block;
+    }
+
+    #others .left, #others .right{
+        margin: 20px auto;
+        width: 100%;
+    }
+
+    
+}
