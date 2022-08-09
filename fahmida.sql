@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 29, 2022 at 05:12 PM
+-- Generation Time: Aug 09, 2022 at 04:51 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -24,11 +24,11 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data`
+-- Table structure for table `iphone`
 --
 
-CREATE TABLE `data` (
-  `id` int(11) NOT NULL,
+CREATE TABLE `iphone` (
+  `id` int(255) NOT NULL,
   `item_name` varchar(255) NOT NULL,
   `item_price` int(255) NOT NULL,
   `item_cpu` varchar(255) NOT NULL,
@@ -39,20 +39,52 @@ CREATE TABLE `data` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data`
+-- Dumping data for table `iphone`
 --
 
-INSERT INTO `data` (`id`, `item_name`, `item_price`, `item_cpu`, `item_ram`, `item_storage`, `screen_size`, `photo`) VALUES
-(3, 'Iphone 14 pro max', 1200, 'Bionic A16', '12', '512', '6.7', 'iphone13.jpg');
+INSERT INTO `iphone` (`id`, `item_name`, `item_price`, `item_cpu`, `item_ram`, `item_storage`, `screen_size`, `photo`) VALUES
+(3, 'Iphone 14 pro max', 1200, 'Bionic A16', '12', '512', '6.7', 'iphone13.jpg'),
+(4, 'Iphone 13 pro max', 1200, 'Bionic A16', '8', '256', '6.7', 'iphone13.jpg'),
+(5, 'Iphone 14', 1500, 'Bionic A16', '8', '512', '6.7', 'iphone12.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `macbook`
+--
+
+CREATE TABLE `macbook` (
+  `id` int(11) NOT NULL,
+  `item_name` varchar(100) NOT NULL,
+  `item_price` int(100) NOT NULL,
+  `item_cpu` varchar(100) NOT NULL,
+  `item_ram` varchar(100) NOT NULL,
+  `item_storage` varchar(100) NOT NULL,
+  `screen_size` varchar(100) NOT NULL,
+  `photo` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `macbook`
+--
+
+INSERT INTO `macbook` (`id`, `item_name`, `item_price`, `item_cpu`, `item_ram`, `item_storage`, `screen_size`, `photo`) VALUES
+(1, 'Macbook Air', 1200, 'Apple M2', '16', '512', '13.3', 'macbook.jpg');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `data`
+-- Indexes for table `iphone`
 --
-ALTER TABLE `data`
+ALTER TABLE `iphone`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `macbook`
+--
+ALTER TABLE `macbook`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -60,10 +92,16 @@ ALTER TABLE `data`
 --
 
 --
--- AUTO_INCREMENT for table `data`
+-- AUTO_INCREMENT for table `iphone`
 --
-ALTER TABLE `data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `iphone`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `macbook`
+--
+ALTER TABLE `macbook`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

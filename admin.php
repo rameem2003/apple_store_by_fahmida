@@ -4,6 +4,7 @@
 
 
     if(isset($_POST['upload'])){
+        $catagory = $_POST['op'];
         $item = $_POST['item'];
         $price = $_POST['price'];
         $cpu = $_POST['cpu'];
@@ -16,16 +17,34 @@
         $image_folder = 'upload_img/'.$image;
 
 
-        $insert_products = "INSERT INTO `data` (item_name, item_price, item_cpu, item_ram, item_storage, screen_size, photo) VALUES ('$item', '$price', '$cpu', '$ram', '$storage', '$screen', '$image')";
+        if($catagory == "iphone"){
+            $insert_products = "INSERT INTO `iphone` (item_name, item_price, item_cpu, item_ram, item_storage, screen_size, photo) VALUES ('$item', '$price', '$cpu', '$ram', '$storage', '$screen', '$image')";
 
-        move_uploaded_file($image_tmp_name, $image_folder);
+            move_uploaded_file($image_tmp_name, $image_folder);
 
 
-        if(mysqli_query($conn, $insert_products)){
-            echo '<script> alert("Upload Success Admin Fahmida! Thank you"); </script>';
-        }else{
-            echo '<script> alert("Something went wrong Admin!"); </script>';
+            if(mysqli_query($conn, $insert_products)){
+                echo '<script> alert("Upload Success Admin Fahmida! Thank you"); </script>';
+            }else{
+                echo '<script> alert("Something went wrong Admin!"); </script>';
+            }
         }
+        
+        elseif($catagory == "mac"){
+            $insert_products = "INSERT INTO `macbook` (item_name, item_price, item_cpu, item_ram, item_storage, screen_size, photo) VALUES ('$item', '$price', '$cpu', '$ram', '$storage', '$screen', '$image')";
+
+            move_uploaded_file($image_tmp_name, $image_folder);
+
+
+            if(mysqli_query($conn, $insert_products)){
+                echo '<script> alert("Upload Success Admin Fahmida! Thank you"); </script>';
+            }else{
+                echo '<script> alert("Something went wrong Admin!"); </script>';
+            }
+        }
+
+
+        
         
     }
 
@@ -52,6 +71,11 @@
 
         <input type="number" name="price" id="price" placeholder="Product price">
 
+        <h3>Product Catagories...</h3>
+        <select class="option" name="op" id="">
+            <option value="iphone">Iphone</option>
+            <option value="mac">MacBook, iMac Computer</option>
+        </select>
 
         <h3>Device specification.....</h3>
         <div class="description">

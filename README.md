@@ -41,7 +41,8 @@
 
 # Database information
 - Database Name: famida
-- Database Table Name: data
+- Database Table Name: iphone
+- Database Table Name: macbook
 
 <br>
 <br>

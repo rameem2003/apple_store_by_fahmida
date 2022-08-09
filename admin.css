@@ -33,6 +33,9 @@ form input{
 form .option{
     height: 50px;
     width: 100%;
+    margin-bottom: 30px;
+    outline: none;
+    font-size: 1.2rem;
 }
 
 form .description{
