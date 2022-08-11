@@ -48,8 +48,44 @@
 
         <h1 class="title">Phone Items</h1>
         <section id="products">
+
+            <?php 
             
-            <div class="cards">
+                include './configuration/connection.php';
+
+                $get_iphone = "SELECT * FROM `iphone`";
+
+                $run = mysqli_query($conn, $get_iphone);
+
+                if(mysqli_num_rows($run) > 0){
+                    while($row = mysqli_fetch_assoc($run)){
+
+                        ?>
+                            <div class="cards">
+                                <div class="card_img">
+                                    <img src="<?php echo "./upload_img/".$row['photo']; ?>" alt="">
+                                </div>
+
+                                <div class="card_title">
+                                    <h1><?php echo $row['item_name'] ?></h1>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda vitae vel eos, accusamus neque ad unde dolor debitis natus?</p>
+                                </div>
+
+                                <div class="price">
+                                    <h2>$ 800</h2>
+                                    <button><i class="fa-solid fa-cart-shopping"></i> Buy now</button>
+                                </div>
+
+                            </div>
+                        <?php
+                    }
+                }else{
+                    echo "DATA NOT FOUND";
+                }
+
+            ?>
+            
+            <!-- <div class="cards">
                 <div class="card_img">
                     <img src="./img/iphone13.jpg" alt="">
                 </div>
@@ -98,7 +134,7 @@
                     <button><i class="fa-solid fa-cart-shopping"></i> Buy now</button>
                 </div>
 
-            </div>
+            </div> -->
 
         </section> 
 
