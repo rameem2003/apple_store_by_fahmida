@@ -130,12 +130,11 @@ header #btn{
 }
 
 #products .cards .product_name{
-    margin: 20px 0;
+    margin: 8px 0;
+    text-align: center;
 }
 
-#products .cards .card_title p{
-    margin: 8px 0;
-}
+
 #products .cards .card_img{
     display: flex;
     align-items: center;
@@ -153,6 +152,11 @@ header #btn{
 
 #products .cards .card_img img:hover{
     transform: scale(1.2);
+}
+
+#products .cards .card_title .details{
+    margin: 20px 0;
+    text-align: center;
 }
 
 #products .cards .price{

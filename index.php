@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apple Store || By Fahmida Yeasmin</title>
+    <!-- <link rel="shortcut icon" href="https://freepngimg.com/download/apple/58741-models-logo-apple-desktop-free-transparent-image-hq.png" type="image/x-icon"> -->
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
     
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -67,12 +69,16 @@
                                 </div>
 
                                 <div class="card_title">
-                                    <h1><?php echo $row['item_name'] ?></h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda vitae vel eos, accusamus neque ad unde dolor debitis natus?</p>
+                                    <h1 class="product_name"><?php echo $row['item_name']; ?></h1>
+                                    <div class="details">
+                                        <h3><?php echo $row['item_cpu']; ?></h3>
+                                        <h3> <?php echo $row['item_ram']; ?> GB / <?php echo $row['item_storage'] ?> GB</h3>
+                                        <h3> <?php echo $row['screen_size']; ?> inch super ratina xdr display </h3>
+                                    </div>
                                 </div>
 
                                 <div class="price">
-                                    <h2>$ 800</h2>
+                                    <h2>$ <?php echo $row['item_price'] ?></h2>
                                     <button><i class="fa-solid fa-cart-shopping"></i> Buy now</button>
                                 </div>
 
