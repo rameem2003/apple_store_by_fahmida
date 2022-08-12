@@ -8,15 +8,14 @@
     <title>Apple Store || By Fahmida Yeasmin</title>
     <!-- <link rel="shortcut icon" href="https://freepngimg.com/download/apple/58741-models-logo-apple-desktop-free-transparent-image-hq.png" type="image/x-icon"> -->
     <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <!-- bootstrap 4 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    
     <!-- local css -->
     <link rel="stylesheet" href="style.css">
-</head> 
 </head>
 <body>
 
@@ -36,8 +35,9 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contract</a></li>
                 <li><a href="products.php">Products</a></li>
-                <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#user_login">Login</button></li>
-                <li><button type="button" class="btn btn-danger ml-2" data-toggle="modal" data-target="#create_account">Register</button></li>
+                <li id="login_btn"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#user_login">Login</button></li>
+                <li id="reg_btn"><button type="button" class="btn btn-danger ml-2" data-toggle="modal" data-target="#create_account">Register</button></li>
+                <li class="profile_name"><?php include './configuration/login_user.php'; ?></li>
             </ul>
         </nav>
     </header>
@@ -62,7 +62,7 @@
                 <label for="pass">Enter Password</label>
                 <input class="form-control" type="password" name="pass" id="pass">
 
-                <input class="btn btn-danger mt-3 d-block ml-auto" type="submit" value="Login">
+                <input class="btn btn-danger mt-3 d-block ml-auto" name="login" type="submit" value="Login">
             </form>
         </div>
         <div class="modal-footer">
@@ -85,17 +85,20 @@
             </button>
         </div>
         <div class="modal-body">
-            <form action="" method="POST">
+            <form action="./configuration/create_user.php" method="POST">
                 <label for="name">Full Name</label>
                 <input class="form-control" type="text" name="name" id="name">
+
                 <label for="phone">Phone</label>
                 <input class="form-control" type="number" name="phone" id="phone">
+
                 <label for="email">Enter Email</label>
                 <input class="form-control" type="email" name="email" id="email">
+
                 <label for="pass">Enter Password</label>
                 <input class="form-control" type="password" name="pass" id="pass">
 
-                <input class="btn btn-primary mt-3 d-block ml-auto" type="submit" value="Register">
+                <input class="btn btn-primary mt-3 d-block ml-auto" name="register" type="submit" value="Register">
             </form>
         </div>
         <div class="modal-footer">
@@ -216,8 +219,50 @@
 
         <h1 class="title">Other's Apple Products</h1>
         <section id="products">
+
+            <?php 
             
-            <div class="cards">
+                include './configuration/connection.php';
+
+                $get_macbook = "SELECT * FROM `macbook`";
+
+                $run = mysqli_query($conn, $get_macbook);
+
+                if(mysqli_num_rows($run) > 0){
+                    while($row = mysqli_fetch_assoc($run)){
+
+                        ?>
+
+                            <div class="cards">
+                                <div class="cards_img">
+                                    <img src="<?php echo './upload_img/'. $row['photo']; ?>" alt="">
+                                </div>
+
+                                <div class="cards_title">
+                                    <h1 class="product_name"><?php echo $row['item_name']; ?></h1>
+                                    <div class="details">
+                                        <h4><?php echo $row['item_cpu']; ?> Chip</h4>
+                                        <h4> <?php echo $row['item_ram']; ?> GB / <?php echo $row['item_storage'] ?> GB</h4>
+                                        <h4> <?php echo $row['screen_size']; ?> inch super ratina xdr display </h4>
+                                    </div>
+                                </div>
+
+                                <div class="price">
+                                    <h2>$ <?php echo $row['item_price'] ?></h2>
+                                    <button><i class="fa-solid fa-cart-shopping"></i> Buy now</button>
+                                </div>
+                            </div>
+
+                        <?php
+                    }
+                }
+                else{
+                    echo "NO DATA FOUND";
+                }
+            
+            ?>
+            
+            <!-- <div class="cards">
                 <div class="cards_img">
                     <img src="./img/macbook-pro.jfif" alt="">
                 </div>
@@ -266,7 +311,7 @@
                     <button><i class="fa-solid fa-cart-shopping"></i> Buy now</button>
                 </div>
 
-            </div>
+            </div> -->
         </section>
 
 

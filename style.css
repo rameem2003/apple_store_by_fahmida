@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
 }
 body{
     background-color: aquamarine;
@@ -41,6 +41,11 @@ header nav ul{
     list-style-type: none;
     display: flex;
     align-items: center;
+}
+
+header nav ul .profile_name{
+    color: white;
+    font-size: 18px;
 }
 
 header nav ul li a{
