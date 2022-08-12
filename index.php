@@ -9,8 +9,13 @@
     <!-- <link rel="shortcut icon" href="https://freepngimg.com/download/apple/58741-models-logo-apple-desktop-free-transparent-image-hq.png" type="image/x-icon"> -->
     <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
     
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- local css -->
+    <link rel="stylesheet" href="style.css">
 </head> 
 </head>
 <body>
@@ -31,10 +36,75 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contract</a></li>
                 <li><a href="products.php">Products</a></li>
+                <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#user_login">Login</button></li>
+                <li><button type="button" class="btn btn-danger ml-2" data-toggle="modal" data-target="#create_account">Register</button></li>
             </ul>
         </nav>
     </header>
     <!-- main section-->
+
+
+    <!-- user login forms -->
+    <!-- Modal -->
+    <div class="modal fade" id="user_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">User Login</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form action="" method="POST">
+                <label for="email">Enter Email</label>
+                <input class="form-control" type="email" name="email" id="email">
+                <label for="pass">Enter Password</label>
+                <input class="form-control" type="password" name="pass" id="pass">
+
+                <input class="btn btn-danger mt-3 d-block ml-auto" type="submit" value="Login">
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+    </div>
+    <!-- user login forms end -->
+
+
+    <!-- create account -->
+    <div class="modal fade" id="create_account" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Create Account</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form action="" method="POST">
+                <label for="name">Full Name</label>
+                <input class="form-control" type="text" name="name" id="name">
+                <label for="phone">Phone</label>
+                <input class="form-control" type="number" name="phone" id="phone">
+                <label for="email">Enter Email</label>
+                <input class="form-control" type="email" name="email" id="email">
+                <label for="pass">Enter Password</label>
+                <input class="form-control" type="password" name="pass" id="pass">
+
+                <input class="btn btn-primary mt-3 d-block ml-auto" type="submit" value="Register">
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+    </div>
+    <!-- create account end -->
 
 
     <main>
@@ -64,16 +134,16 @@
 
                         ?>
                             <div class="cards">
-                                <div class="card_img">
+                                <div class="cards_img">
                                     <img src="<?php echo "./upload_img/".$row['photo']; ?>" alt="">
                                 </div>
 
-                                <div class="card_title">
+                                <div class="cards_title">
                                     <h1 class="product_name"><?php echo $row['item_name']; ?></h1>
                                     <div class="details">
-                                        <h3><?php echo $row['item_cpu']; ?></h3>
-                                        <h3> <?php echo $row['item_ram']; ?> GB / <?php echo $row['item_storage'] ?> GB</h3>
-                                        <h3> <?php echo $row['screen_size']; ?> inch super ratina xdr display </h3>
+                                        <h4><?php echo $row['item_cpu']; ?></h4>
+                                        <h4> <?php echo $row['item_ram']; ?> GB / <?php echo $row['item_storage'] ?> GB</h4>
+                                        <h4> <?php echo $row['screen_size']; ?> inch super ratina xdr display </h4>
                                     </div>
                                 </div>
 
@@ -148,11 +218,11 @@
         <section id="products">
             
             <div class="cards">
-                <div class="card_img">
+                <div class="cards_img">
                     <img src="./img/macbook-pro.jfif" alt="">
                 </div>
 
-                <div class="card_title">
+                <div class="cards_title">
                     <h1>Macbook pro</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda vitae vel eos, accusamus neque ad unde dolor debitis natus?</p>
                 </div>
@@ -165,11 +235,11 @@
             </div>
 
             <div class="cards">
-                <div class="card_img">
+                <div class="cards_img">
                     <img src="./img/airbuds.jfif" alt="">
                 </div>
 
-                <div class="card_title">
+                <div class="cards_title">
                     <h1>Apple Ipod</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda vitae vel eos, accusamus neque ad unde dolor debitis natus?</p>
                 </div>
@@ -182,11 +252,11 @@
             </div>
 
             <div class="cards">
-                <div class="card_img">
+                <div class="cards_img">
                     <img src="./img/apple  watch.jpg" alt="">
                 </div>
 
-                <div class="card_title">
+                <div class="cards_title">
                     <h1>Apple Watch</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda vitae vel eos, accusamus neque ad unde dolor debitis natus?</p>
                 </div>
@@ -290,5 +360,12 @@
     
     
     <marquee behavior="" direction="">Website Created by Fahmida Yeasmin.☺ ©2022 only use Raw HTML, CSS, JS, PHP. Private Policy Cookies Pilicy Teams Of Use</marquee>
+
+
+
+    <!-- bootstrap js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

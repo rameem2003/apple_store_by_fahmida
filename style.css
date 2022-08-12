@@ -21,13 +21,13 @@ header{
 }
 
 header .logo{
-    width: 30%;
+    width: 20%;
 }
 header nav{
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 70%;
+    width: 80%;
 }
 
 .logo img{ 
@@ -132,10 +132,11 @@ header #btn{
 #products .cards .product_name{
     margin: 8px 0;
     text-align: center;
+    font-size: 30px;
 }
 
 
-#products .cards .card_img{
+#products .cards .cards_img{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -144,17 +145,17 @@ header #btn{
     overflow: hidden;
 }
 
-#products .cards .card_img img{
+#products .cards .cards_img img{
     width: 600px;
     height: 300px;
     transition: 0.5s;
 }
 
-#products .cards .card_img img:hover{
+#products .cards .cards_img img:hover{
     transform: scale(1.2);
 }
 
-#products .cards .card_title .details{
+#products .cards .cards_title .details{
     margin: 20px 0;
     text-align: center;
 }
