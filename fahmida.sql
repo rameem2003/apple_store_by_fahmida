@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2022 at 04:51 AM
+-- Generation Time: Aug 13, 2022 at 03:46 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -69,7 +69,31 @@ CREATE TABLE `macbook` (
 --
 
 INSERT INTO `macbook` (`id`, `item_name`, `item_price`, `item_cpu`, `item_ram`, `item_storage`, `screen_size`, `photo`) VALUES
-(1, 'Macbook Air', 1200, 'Apple M2', '16', '512', '13.3', 'macbook.jpg');
+(1, 'Macbook Air', 1200, 'Apple M2', '16', '512', '13.3', 'macbook.jpg'),
+(2, 'Macbook Pro', 2500, 'Apple M1 Pro', '16', '512', '16', 'MacBook_Pro_14.jpg'),
+(3, 'IMAC Pro', 5000, 'Apple M1', '16', '512', '24', 'imac.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(255) NOT NULL,
+  `user_name` varchar(255) NOT NULL,
+  `user_phone` int(11) NOT NULL,
+  `user_email` varchar(100) NOT NULL,
+  `user_password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `user_name`, `user_phone`, `user_email`, `user_password`) VALUES
+(2, 'Mahmood Hassan Rameem', 1409029641, 'rameem2019@gmail.com', '123'),
+(3, 'Fahmida Yeasmin', 14878978, 'fahmidayeas.me@gmail.com', '112');
 
 --
 -- Indexes for dumped tables
@@ -88,6 +112,12 @@ ALTER TABLE `macbook`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -101,7 +131,13 @@ ALTER TABLE `iphone`
 -- AUTO_INCREMENT for table `macbook`
 --
 ALTER TABLE `macbook`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
