@@ -18,7 +18,7 @@ if(isset($_POST['login'])){
         $row = mysqli_fetch_assoc($run);
         $_SESSION['name'] = $row['user_name'];
 
-        echo "Hello ".$_SESSION['name'];
+        echo "Hello! ".$_SESSION['name'];
     }
 }
 
