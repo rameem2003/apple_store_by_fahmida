@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Products || Apple Store</title>
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1 class="title">Other's products</h1>
     <section id="products">
         <div class="cards">
-            <div class="card_img">
+            <div class="cards_img">
                 <img src="./img//1280px-Apple_I_Computer.jpg" alt="">
             </div>
 
@@ -28,7 +29,7 @@
         </div>
 
         <div class="cards">
-            <div class="card_img">
+            <div class="cards_img">
                 <img src="./img/apple air.jpg" alt="">
             </div>
 
@@ -45,7 +46,7 @@
         </div>
 
         <div class="cards">
-            <div class="card_img">
+            <div class="cards_img">
                 <img src="./img/macbook air.webp" alt="">
             </div>
 

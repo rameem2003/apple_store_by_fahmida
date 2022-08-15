@@ -36,7 +36,7 @@
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contract</a></li>
+                <li><a href="contact.html">Contact</a></li>
                 <li><a href="products.php">Products</a></li>
                 <li id="login_btn"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#user_login">Login</button></li>
                 <li id="reg_btn"><button type="button" class="btn btn-danger ml-2" data-toggle="modal" data-target="#create_account">Register</button></li>
@@ -361,7 +361,9 @@
     
   
     
-    
+    </main>
+
+
     <!-- footer section -->
     <footer>
         <p><i>FOLLOW US ON</i></p>
@@ -393,17 +395,6 @@
                 <p>Lorem ipsum dolor sit amet.</p>
             </div>
         </div>
-              <!--Facebook Icon -->
-           
-
-              <!--Youtube Icon -->
-           
-
-               <!-- What's up Icon -->
-             
-
-            <!--Instagram Icon -->
-             
     </footer>
     
     
