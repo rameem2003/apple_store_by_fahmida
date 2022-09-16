@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: blueviolet;
+}
+
+.wrapper{
+    width: 350px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.wrapper input{
+    width: 100%;
+    margin: 20px 0;
+    height: 50px;
+    outline: none;
+    font-size: 20px;
+    padding: 0 20px;
+}
+
+.wrapper input[type="submit"]{
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+}

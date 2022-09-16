@@ -1,5 +1,36 @@
 <?php
 
+    include './configuration/connection.php';
+
+    session_start();
+
+    $admin_id = $_SESSION['admin_id'];
+
+    if(!isset($admin_id)){
+        header('location:admin_login.php');
+    }
+
+    if(isset($_GET['logout'])){
+        session_destroy();
+        unset($admin_id);
+        header("location:admin_login.php");
+    }
+
+
+    $load_admin_name = "SELECT * FROM `admin` WHERE id = '$admin_id'";
+
+    $run_query = mysqli_query($conn, $load_admin_name);
+
+    if(mysqli_num_rows($run_query)){
+        $admin_name = mysqli_fetch_assoc($run_query);
+    }
+
+    
+
+?>
+
+<?php
+
     include "./configuration/connection.php";
 
 
@@ -39,7 +70,7 @@
             if(mysqli_query($conn, $insert_products)){
                 echo '<script> alert("Upload Success Admin Fahmida! Thank you"); </script>';
             }else{
-                echo '<script> alert("Something went wrong Admin!"); </script>';
+                echo "<script> alert('Something went wrong Admin!'); </script>";
             }
         }
 
@@ -65,7 +96,7 @@
 </head>
 <body>
     <form action="" method="post" enctype="multipart/form-data">
-        <h1>Hello Admin...</h1>
+        <h1>Hello Admin <?php echo $admin_name['admin_user'] ?></h1>
         <p>Upload your products</p>
         <input type="text" name="item" id="name" placeholder="Product name">
 
@@ -88,6 +119,7 @@
         <input type="file" name="image" id="" accept="image/jpeg, image/png, image/jpg">
 
         <input type="submit" name="upload" value="Upload">
+        <a class="logout" href="admin.php?logout=<?php echo $admin_id ?>">Logout</a>
     </form>
 </body>
 </html>
