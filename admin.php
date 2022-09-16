@@ -55,7 +55,7 @@
 
 
             if(mysqli_query($conn, $insert_products)){
-                echo '<script> alert("Upload Success Admin Fahmida! Thank you"); </script>';
+                echo '<script> alert("Upload Success Admin ! Thank you"); </script>';
             }else{
                 echo '<script> alert("Something went wrong Admin!"); </script>';
             }
