@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -155,7 +154,7 @@
 
                                 <div class="price">
                                     <h2>$ <?php echo $row['item_price'] ?></h2>
-                                    <button><i class="fa-solid fa-cart-shopping"></i> Buy now</button>
+                                    <a class="btn btn-primary" href="view_iphone_products.php?viewPhone=<?php echo $row['id']; ?>"><i class="fa-solid fa-cart-shopping"></i> Buy now</a>
                                 </div>
 
                             </div>
@@ -252,7 +251,7 @@
 
                                 <div class="price">
                                     <h2>$ <?php echo $row['item_price'] ?></h2>
-                                    <button><i class="fa-solid fa-cart-shopping"></i> Buy now</button>
+                                    <a class="btn btn-primary" href="view_computer_products.php?viewComputer=<?php echo $row['id']; ?>"><i class="fa-solid fa-cart-shopping"></i> Buy now</a>
                                 </div>
                             </div>
 

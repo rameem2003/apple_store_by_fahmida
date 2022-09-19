@@ -175,18 +175,6 @@ header #btn{
     font-size: 30px;
     color: orangered;
 }
-#products .cards .price button{
-    background-color: blue;
-    border: none;
-    outline: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    color: white;
-    cursor: pointer;
-}
-#products .cards .price button:hover{
-    background-color: rgb(40, 115, 115);
-}
 
 #others{
     display: flex;
