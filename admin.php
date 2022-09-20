@@ -1,5 +1,33 @@
 <?php
 
+    // For display iphones list
+    include './configuration/connection.php';
+
+    $run_iphone_list_query = "SELECT * FROM `iphone`";
+
+    $run_iphone = mysqli_query($conn, $run_iphone_list_query);
+
+    $total_iphone = mysqli_num_rows($run_iphone);
+
+
+?>
+
+<?php
+
+    // For display computer
+    include './configuration/connection.php';
+
+    $run_computer_list_query = "SELECT * FROM `macbook`";
+
+    $run_computer = mysqli_query($conn, $run_computer_list_query);
+
+    $total_computer = mysqli_num_rows($run_computer);
+
+?>
+
+<?php
+
+    // for display admin name
     include './configuration/connection.php';
 
     session_start();
@@ -13,7 +41,7 @@
     if(isset($_GET['logout'])){
         session_destroy();
         unset($admin_id);
-        header("location:admin_login.php");
+        header("location:index.php");
     }
 
 
@@ -31,6 +59,7 @@
 
 <?php
 
+    //Upload products
     include "./configuration/connection.php";
 
 
@@ -56,6 +85,7 @@
 
             if(mysqli_query($conn, $insert_products)){
                 echo '<script> alert("Upload Success Admin ! Thank you"); </script>';
+                header("location:index.php");
             }else{
                 echo '<script> alert("Something went wrong Admin!"); </script>';
             }
@@ -68,7 +98,8 @@
 
 
             if(mysqli_query($conn, $insert_products)){
-                echo '<script> alert("Upload Success Admin Fahmida! Thank you"); </script>';
+                echo '<script> alert("Upload Success Admin ! Thank you"); </script>';
+                header("location:index.php");
             }else{
                 echo "<script> alert('Something went wrong Admin!'); </script>";
             }
@@ -96,8 +127,13 @@
     <link rel="stylesheet" href="./admin.css">
 </head>
 <body>
-    <form action="" method="post" enctype="multipart/form-data">
-        <h1>Hello Admin <?php echo $admin_name['admin_user'] ?></h1>
+
+    <button id="addProductsBtn">Add products</button>
+    <a class="mainLogout" href="admin.php?logout=<?php echo $admin_id ?>">Logout</a>
+
+    <!-- products upload -->
+    <form id="productsForm" action="" method="post" enctype="multipart/form-data">
+        <h1>Hello Admin <?php echo $admin_name['admin_user']; ?></h1>
         <p>Upload your products</p>
         <input type="text" name="item" id="name" placeholder="Product name">
 
@@ -122,5 +158,113 @@
         <input type="submit" name="upload" value="Upload">
         <a class="logout" href="admin.php?logout=<?php echo $admin_id ?>">Logout</a>
     </form>
+    <!-- products upload end -->
+
+
+
+    <!-- list of apple phones -->
+    <section id="iphone_list" class="products_list">
+        <div class="head">
+            <h1>Apple Store Dashboard</h1>
+            <h3>Welcome Admin <?php echo $admin_name['admin_user']; ?></h3>
+
+            <h3>List of Iphones (Total <?php echo $total_iphone ?>)</h3>
+        </div>
+
+        <div class="list">
+            <div class="row">
+                <div class="sl">SL</div>
+                <div class="name">Product Name</div>
+                <div class="price">Price</div>
+                <div class="cpu">Processor</div>
+                <div class="storage">Storage</div>
+                <div class="ram">Ram</div>
+                <div class="screen_size">Screen Size</div>
+            </div>
+
+
+            <?php
+
+                if(mysqli_num_rows($run_iphone) > 0){
+                    while($iphone_row = mysqli_fetch_assoc($run_iphone)){
+                        ?>
+
+                        <div class="row">
+                                <div class="sl"><?php echo $iphone_row['id']; ?></div>
+                                <div class="name"><?php echo $iphone_row['item_name']; ?></div>
+                                <div class="price"><?php echo $iphone_row['item_price']; ?> $</div>
+                                <div class="cpu"><?php echo $iphone_row['item_cpu']; ?></div>
+                                <div class="storage"><?php echo $iphone_row['item_storage']; ?> GB</div>
+                                <div class="ram"><?php echo $iphone_row['item_ram']; ?> GB</div>
+                                <div class="screen_size"><?php echo $iphone_row['screen_size']; ?> inch</div>
+                            </div>
+
+                        <?php 
+                    }
+                }
+
+            ?>
+        </div>
+
+    </section>
+    <!-- list of apple phones end -->
+
+
+    <!-- list of apple computer -->
+    <section id="computer_list" class="products_list">
+        <div class="head">
+            <h3>List of Computer (Total <?php echo $total_computer ?>) </h3>
+        </div>
+
+        <div class="list">
+            <div class="row">
+                <div class="sl">SL</div>
+                <div class="name">Product Name</div>
+                <div class="price">Price</div>
+                <div class="cpu">Processor</div>
+                <div class="storage">Storage</div>
+                <div class="ram">Ram</div>
+                <div class="screen_size">Screen Size</div>
+            </div>
+
+
+            <?php
+
+                if(mysqli_num_rows($run_computer) > 0){
+                    while($computer_row = mysqli_fetch_assoc($run_computer)){
+                        ?>
+
+                        <div class="row">
+                                <div class="sl"><?php echo $computer_row['id']; ?></div>
+                                <div class="name"><?php echo $computer_row['item_name']; ?></div>
+                                <div class="price"><?php echo $computer_row['item_price']; ?> $</div>
+                                <div class="cpu"><?php echo $computer_row['item_cpu']; ?></div>
+                                <div class="storage"><?php echo $computer_row['item_storage']; ?> GB</div>
+                                <div class="ram"><?php echo $computer_row['item_ram']; ?> GB</div>
+                                <div class="screen_size"><?php echo $computer_row['screen_size']; ?> inch</div>
+                            </div>
+
+                        <?php 
+                    }
+                }
+
+            ?>
+        </div>
+
+    </section>
+    <!-- list of apple computer end -->
+
+
+
+    <script>
+        const addProductsBtn = document.getElementById("addProductsBtn");
+        
+        addProductsBtn.addEventListener("click", () => {
+            const productsForm = document.getElementById("productsForm");
+            document.getElementById("iphone_list").classList.toggle("blur");
+            document.getElementById("computer_list").classList.toggle("blur");
+            productsForm.classList.toggle("expand");
+        });
+    </script>
 </body>
 </html>

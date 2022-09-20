@@ -2,15 +2,39 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 
 body{
     background-color: blueviolet;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 120vh;
+}
+
+#addProductsBtn{
+    padding: 10px 10px;
+    font-size: 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.mainLogout{
+    position: fixed;
+    top: 10px;
+    right: 200px;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 8px;
 }
 
 
@@ -19,7 +43,18 @@ form{
     background-color: white;
     padding: 5px;
     border-radius: 8px;
+    position: absolute;
+    top: -800px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.5s linear;
+    z-index: 10000;
 }
+
+form.expand{
+    top: 20px;
+}
+
 
 form h1{
     text-transform: capitalize;
@@ -81,4 +116,56 @@ form .logout{
     text-align: center;
     text-decoration: none;
     font-size: 1.2rem;
+}
+
+.products_list{
+    width: 1000px;
+    margin: 80px auto;
+    background-color: white;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+#iphone_list.blur{
+    opacity: 0.5;
+}
+
+#computer_list.blur{
+    opacity: 0.5;
+}
+
+
+.products_list .head{
+    text-align: center;
+}
+
+.products_list .head h1{
+    font-size: 40px;
+    margin: 20px 0;
+}
+
+.products_list .head h3{
+    font-size: 25px;
+    text-transform: capitalize;
+}
+
+.products_list .list{
+    margin-top: 30px;
+}
+
+.products_list .list .row{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px 10px;
+    background-color: blueviolet;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.products_list .list .row div{
+    text-align: center;
+    display: block;
 }
