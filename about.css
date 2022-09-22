@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#wrapper{
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    width: 1000px;
+}
+
+#wrapper .profiles{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#wrapper .profile{
+    width: 50%;
+    height: 338px;
+    margin: 50px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    justify-content: space-evenly;
+}
+#wrapper .profile .img{
+    width: 40%
+}
+
+#wrapper .profile .img img{
+    width: 185px;
+    height: 187px;
+    border-radius: 50%;
+    border: 5px solid white;
+}
+
+#wrapper .profile .details{
+    width: 60%;
+    text-align: left;
+    padding-left: 50px;
+}
+
+#wrapper .profile .details .progress{
+    margin-top: 20px;
+}
+
+#wrapper .profile .details .tag{
+    margin: 20px 0;
+
+}
+
+#wrapper .github{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
+
+#wrapper .github .img{
+    width: 40%;
+
+}
+
+#wrapper .github .img img{
+    max-width: 100%;
+}
+
+#wrapper .github .text{
+    width: 60%;
+
+}
+
+#wrapper .github .text a{
+    padding: 20px;
+    background-color: red;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+

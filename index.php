@@ -37,6 +37,7 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="products.php">Products</a></li>
+                <li><a href="admin_login.php" target="_blank">Admin</a></li>
                 <li id="login_btn"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#user_login">Login</button></li>
                 <li id="reg_btn"><button type="button" class="btn btn-danger ml-2" data-toggle="modal" data-target="#create_account">Register</button></li>
                 <li class="profile_name"><?php include './configuration/login_user.php'; ?></li>
