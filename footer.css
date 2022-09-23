@@ -1,0 +1,45 @@
+footer{
+    background-color: black;
+    margin: 0;
+    height: 200px;
+}
+footer .apple{
+    color: #f8f8f8;
+    text-align:center;
+  font-size: 50px;
+  font-style: italic;
+}
+footer .dis{
+    color: #f8f8f8;
+    text-align:center;
+    font-style: italic;
+}
+footer .clk{
+    color: #8a2be2;
+    text-align:center;
+    font-style: italic;
+}
+footer ul{
+    list-style-type: none;
+    background-color: black;
+    text-align:center;
+    font-style: italic;
+}
+footer li{ 
+    color: white;
+    display: inline-block;
+    padding: 10px;
+    margin: 0 15px;
+}
+footer ul li a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white !important; 
+    border: 1px solid white;
+    border-radius: 50%;
+    height: 44px;
+    width: 44px;
+    font-size: 20px;
+}
