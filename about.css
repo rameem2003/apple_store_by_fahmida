@@ -7,10 +7,6 @@
 
 body{
     background-color: gray;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
 }
 
 #wrapper{
@@ -19,6 +15,7 @@ body{
     padding: 20px;
     border-radius: 10px;
     width: 1000px;
+    margin: 100px auto;
 }
 
 #wrapper .profiles{

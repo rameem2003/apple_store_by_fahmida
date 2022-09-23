@@ -34,8 +34,8 @@
         <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="contact.php">Contact</a></li>
                 <li><a href="products.php">Products</a></li>
                 <li><a href="admin_login.php" target="_blank">Admin</a></li>
                 <li id="login_btn"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#user_login">Login</button></li>
@@ -355,52 +355,10 @@
                 <img src="./img/XMLID1.png" alt="">
             </div>
         </section>
-
-            
-    
-    
-  
     
     </main>
 
-
-    <!-- footer section -->
-    <footer>
-        <p><i>FOLLOW US ON</i></p>
-       
-
-        <div class="containt">
-            <div class="containt-box">
-                <i class="fa-brands fa-facebook" id="facebook"></i>
-
-                <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-
-
-            <div class="containt-box">
-                <i class="fa-brands fa-youtube" id="youtube"></i>
-
-                <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-
-            <div class="containt-box">
-                <i class="fab fa-whatsapp" id="whats"></i>
-
-                <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-
-            <div class="containt-box">
-                <i class="fa-brands fa-instagram" id="insta"></i>
-
-                <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-        </div>
-    </footer>
-    
-    
-    <marquee behavior="" direction="">Website Created by Fahmida Yeasmin.☺ ©2022 only use Raw HTML, CSS, JS, PHP. Private Policy Cookies Pilicy Teams Of Use</marquee>
-
-
+    <?php include './footer.php' ?>
 
     <!-- bootstrap js -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

@@ -75,16 +75,17 @@ header #btn{
 }
 
 #cover{
-    height: 100vh;
+    height: 80vh;
     width: 100%;
     background-image: url("./img/a.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 
 }
 #cover .blur{
     width: 100%;
-    height: 100vh;
+    height: 80vh;
     background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     align-items: center;
@@ -238,77 +239,7 @@ header #btn{
 
 
 
-footer p{
-    font-weight: bolder;
-    color: rgb(170, 14, 45);
-    text-align: center;
-}
 
-footer .containt{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-footer .containt .containt-box{
-    width: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin: 10px;
-}
-
-footer .containt .containt-box i{
-    font-size: 50px;
-    margin: 20px 0;
-    padding: 20px;
-    border-radius: 8px;
-    transition: 0.5s;
-}
-
-footer .containt .containt-box i:hover{
-    transform: scale(1.2);
-}
-
-footer .containt .containt-box p{
-    font-size: 20px;
-}
-
-
-#facebook{
-    background-color: blue;
-    color: white;
-}
-
-#youtube{
-    background-color: red;
-    color: white;
-}
-
-#whats{
-    background-color: green;
-    color: white;
-}
-
-#insta{
-    background: linear-gradient(150deg, red, blue);
-    color: white;
-}
-
-
-
-footer h1{
-    color: rgb(8, 2, 3);
-    text-align: center;
-    padding-left: 50px;
-    font-size: 30px;
-}
-
-marquee{
-    color: red;
-    font-weight: bolder;
-}
 
 
 @media screen and (max-width: 500px) {

@@ -62,12 +62,15 @@
 
             <div class="box">
                 <i class="fa-solid fa-store"></i>
-                <h1>Boshundhora Center</h1>
+                <h1>Boshundhora City</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, corporis magni itaque maiores delectus accusantium nemo incidunt repudiandae distinctio possimus quam inventore, rem praesentium exercitationem dolores blanditiis, vero odit consequuntur?</p>
                 <h4>Phone: 01448787877</h4>
             </div>
         </div>
     </section>
+
+
+    <?php include './footer.php'; ?>
    
 </body>
 </html>
