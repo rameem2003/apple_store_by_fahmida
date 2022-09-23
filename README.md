@@ -43,6 +43,7 @@
 - Database Name: famida
 - Database Table Name: iphone
 - Database Table Name: macbook
+- Database Table Name: admin
 
 <br>
 <br>
@@ -66,4 +67,6 @@ Fahmida Yeasmin            |  Mahmood Hassan Rameem
 
 Fahmida Yeasmin            |  Mahmood Hassan Rameem
 :-------------------------:|:-------------------------:
+Project Owner           |  Project Associate Partner
+|
 <img src='./readme_assets/contributors/fahmida.jpg' width="250px" height="300pxpx"/>  |  <img src='./readme_assets/contributors/rameem.jpg' width="250px" height="300px"/>
