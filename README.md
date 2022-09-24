@@ -1,6 +1,19 @@
-# Apple Store Project by <b>Fahmida Yeasmin</b>
+# Apple Store by <b>Fahmida Yeasmin</b>
 ## Supporting by Mahmood Hassan Rameem
-## ___#FYMHR2838___
+
+
+<br>
+<br>
+
+## Developer: __Fahmida Yeasmin__
+## Associate Partner: __Mahmood Hassan Rameem__
+## _Studing Diploma Engineering_
+## _Computer Technology_
+## ___Institute of Science Trade & Technology, Dhaka.___
+
+<br>
+
+# ___#FYMHR2838___
 
 <br>
 <br>
@@ -20,7 +33,7 @@
 <br>
 <br>
 
-# Project Contributors and their contributions
+# Project contributors and their contributions
 
 ## 1) Fahmida Yeasmin
 
