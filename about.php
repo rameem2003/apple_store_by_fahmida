@@ -11,6 +11,29 @@
     <link rel="stylesheet" href="./about.css">
 </head>
 <body>
+    <!-- header section -->
+    <header>
+      
+        <div class="logo">
+            <img src="./img/logo.png" alt="logo">
+        </div>
+
+        <label for="btn" class="menu_btn"><i class="fa-solid fa-bars"></i></label>
+        <input type="checkbox" id="btn">
+
+        <nav>
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li><a href="products.php">Products</a></li>
+                <li><a href="admin_login.php" target="_blank">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- main section-->
+
+
     <div id="wrapper">
         <div class="head">
             <h1>Apple Store Site Developer</h1>

@@ -1,13 +1,12 @@
 footer{
     background-color: black;
     margin: 0;
-    height: 200px;
 }
 footer .apple{
     color: #f8f8f8;
     text-align:center;
-  font-size: 50px;
-  font-style: italic;
+    font-size: 50px;
+    font-style: italic;
 }
 footer .dis{
     color: #f8f8f8;
@@ -21,9 +20,10 @@ footer .clk{
 }
 footer ul{
     list-style-type: none;
-    background-color: black;
+    /* background-color: black; */
     text-align:center;
     font-style: italic;
+    margin: 0;
 }
 footer li{ 
     color: white;
@@ -47,6 +47,18 @@ footer ul li a{
 
 @media screen and (max-width: 500px) {
     footer .apple{
-        font-size: 25px;
+        font-size: 30px;
+    }
+
+    footer .dis{
+        font-size: 20px;
+    }
+
+    footer .clk{
+        font-size: 15px;
+    }
+
+    footer ul li{
+        margin: 0;
     }
 }

@@ -9,13 +9,74 @@ body{
     background-color: gray;
 }
 
+header{
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo{
+    width: 20%;
+}
+header nav{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 80%;
+}
+
+.logo img{ 
+    height: 80px;
+    width: 100px;
+    margin-top:5px ;
+    margin-left: 10px;
+}
+
+header nav ul{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+header nav ul .profile_name{
+    color: white;
+    font-size: 18px;
+}
+
+header nav ul li a{
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-size: 20px;
+    padding: 10px 20px;
+}
+nav ul li a:hover{
+    color: crimson;
+    background-color: black;
+    border-radius: 15px;
+
+
+}
+
+
+header .menu_btn{
+    font-size: 40px;
+    color: white;
+    display: none;
+}
+
+header #btn{
+    display: none;
+}
+
 #wrapper{
     background-color: white;
     text-align: center;
     padding: 20px;
     border-radius: 10px;
     width: 1000px;
-    margin: 100px auto;
+    margin: 50px auto;
 }
 
 #wrapper .profiles{
@@ -89,6 +150,91 @@ body{
     text-decoration: none;
     margin-top: 20px;
     display: inline-block;
+}
+
+
+@media screen and (max-width: 500px) {
+    header .menu_btn{
+        display: initial;
+    }
+
+
+    header .logo{
+        width: 80%;
+    }
+
+
+    header nav{
+        display: block;
+        position: absolute;
+        top: 100px;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: blue;
+        transition: 0.5s;
+    }
+
+    #btn:checked ~ nav{
+        left: 0%;
+    }
+
+    
+
+    header nav ul{
+        display: block;
+        text-align: center;
+    }
+
+    header nav ul li a{
+        margin: 20px 0;
+    }
+
+
+    #wrapper{
+        width: 90%;
+    }
+
+    #wrapper .profiles{
+        display: block;
+    }
+
+    #wrapper .profiles .profile{
+        width: 90%;
+        margin: 20px auto;
+        display: block;
+        height: auto;
+    }
+
+    #wrapper .profiles .profile .img,
+    #wrapper .profiles .profile .details{
+        width: 100%;
+        text-align: center;
+    }
+
+    #wrapper .profiles .profile .details{
+        padding: 0;
+    }
+
+
+    #wrapper .github{
+        display: block;
+    }
+
+    #wrapper .github .img,
+    #wrapper .github .text{
+        width: 100%;
+        text-align: center;
+    }
+
+    #wrapper .github .text h1{
+        font-size: 25px;
+    }
+
+    #wrapper .github .text{
+        text-align: center;
+    }
+
 }
 
 

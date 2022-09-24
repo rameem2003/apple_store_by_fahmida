@@ -315,5 +315,9 @@ header #btn{
         width: 100%;
     }
 
+    #others .left .box{
+        height: 220px;
+    }
+
     
 }

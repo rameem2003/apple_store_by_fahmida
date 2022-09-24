@@ -1,5 +1,6 @@
 # Apple Store Project by <b>Fahmida Yeasmin</b>
 ## Supporting by Mahmood Hassan Rameem
+## ___#FYMHR2838___
 
 <br>
 <br>
@@ -40,10 +41,11 @@
 
 
 # Database information
-- Database Name: famida
+- Database Name: fahmida
 - Database Table Name: iphone
 - Database Table Name: macbook
 - Database Table Name: admin
+- Database Table Name: users
 
 <br>
 <br>
