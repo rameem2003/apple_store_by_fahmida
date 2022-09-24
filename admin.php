@@ -1,6 +1,6 @@
 <?php
 
-    // For display iphones list
+    // for display iphones list
     include './configuration/connection.php';
 
     $run_iphone_list_query = "SELECT * FROM `iphone`";
@@ -14,7 +14,7 @@
 
 <?php
 
-    // For display computer
+    // for display computer
     include './configuration/connection.php';
 
     $run_computer_list_query = "SELECT * FROM `macbook`";
@@ -185,6 +185,7 @@
 
             <?php
 
+                // for display all iphones in table
                 if(mysqli_num_rows($run_iphone) > 0){
                     while($iphone_row = mysqli_fetch_assoc($run_iphone)){
                         ?>
@@ -229,7 +230,7 @@
 
 
             <?php
-
+                // for display all computers in table
                 if(mysqli_num_rows($run_computer) > 0){
                     while($computer_row = mysqli_fetch_assoc($run_computer)){
                         ?>

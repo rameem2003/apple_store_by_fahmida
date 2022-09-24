@@ -128,6 +128,8 @@
         <section id="products">
 
             <?php 
+
+                // php code for display iphones
             
                 include './configuration/connection.php';
 
@@ -166,65 +168,15 @@
                 }
 
             ?>
-            
-            <!-- <div class="cards">
-                <div class="card_img">
-                    <img src="./img/iphone13.jpg" alt="">
-                </div>
-
-                <div class="card_title">
-                    <h1>Iphone 13 Pro Max</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda vitae vel eos, accusamus neque ad unde dolor debitis natus?</p>
-                </div>
-
-                <div class="price">
-                    <h2>$ 1000</h2>
-                    <button><i class="fa-solid fa-cart-shopping"></i> Buy now</button>
-                </div>
-
-            </div>
-
-            <div class="cards">
-                <div class="card_img">
-                    <img src="./img/iphone12.jpg" alt="">
-                </div>
-
-                <div class="card_title">
-                    <h1>Iphone 12 Pro Max</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda vitae vel eos, accusamus neque ad unde dolor debitis natus?</p>
-                </div>
-
-                <div class="price">
-                    <h2>$ 800</h2>
-                    <button><i class="fa-solid fa-cart-shopping"></i> Buy now</button>
-                </div>
-
-            </div>
-
-            <div class="cards">
-                <div class="card_img">
-                    <img src="./img/i phone .jfif" alt="">
-                </div>
-
-                <div class="card_title">
-                    <h1>Iphone 11 </h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda vitae vel eos, accusamus neque ad unde dolor debitis natus?</p>
-                </div>
-
-                <div class="price">
-                    <h2>$ 700</h2>
-                    <button><i class="fa-solid fa-cart-shopping"></i> Buy now</button>
-                </div>
-
-            </div> -->
-
         </section> 
 
         <h1 class="title">Other's Apple Products</h1>
         <section id="products">
 
             <?php 
-            
+
+                // php code for display computers
+
                 include './configuration/connection.php';
 
                 $get_macbook = "SELECT * FROM `macbook`";
@@ -264,57 +216,6 @@
                 }
             
             ?>
-            
-            <!-- <div class="cards">
-                <div class="cards_img">
-                    <img src="./img/macbook-pro.jfif" alt="">
-                </div>
-
-                <div class="cards_title">
-                    <h1>Macbook pro</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda vitae vel eos, accusamus neque ad unde dolor debitis natus?</p>
-                </div>
-
-                <div class="price">
-                    <h2>$ 1500</h2>
-                    <button><i class="fa-solid fa-cart-shopping"></i> Buy now</button>
-                </div>
-
-            </div>
-
-            <div class="cards">
-                <div class="cards_img">
-                    <img src="./img/airbuds.jfif" alt="">
-                </div>
-
-                <div class="cards_title">
-                    <h1>Apple Ipod</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda vitae vel eos, accusamus neque ad unde dolor debitis natus?</p>
-                </div>
-
-                <div class="price">
-                    <h2>$ 600</h2>
-                    <button><i class="fa-solid fa-cart-shopping"></i> Buy now</button>
-                </div>
-
-            </div>
-
-            <div class="cards">
-                <div class="cards_img">
-                    <img src="./img/apple  watch.jpg" alt="">
-                </div>
-
-                <div class="cards_title">
-                    <h1>Apple Watch</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda vitae vel eos, accusamus neque ad unde dolor debitis natus?</p>
-                </div>
-
-                <div class="price">
-                    <h2>$ 500</h2>
-                    <button><i class="fa-solid fa-cart-shopping"></i> Buy now</button>
-                </div>
-
-            </div> -->
         </section>
 
 

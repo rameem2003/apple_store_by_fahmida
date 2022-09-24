@@ -1,5 +1,6 @@
 <?php 
 
+    // for display individual products
     include './configuration/connection.php';
 
     if(isset($_GET['viewComputer'])){

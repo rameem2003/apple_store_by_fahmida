@@ -1,5 +1,6 @@
 <?php 
 
+    // for admin login
     include './configuration/connection.php';
 
     session_start();
