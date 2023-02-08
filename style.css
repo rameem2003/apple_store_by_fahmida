@@ -5,7 +5,8 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 body{
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
+    background-color: gainsboro;
 }
 
 .title{
@@ -127,7 +128,7 @@ header #btn{
     flex-wrap: wrap;
 }
 
-#products .cards{
+#products form{
     background-color: white;
     border-radius: 8px;
     padding: 10px;
@@ -135,14 +136,14 @@ header #btn{
     margin: 20px;
 }
 
-#products .cards .product_name{
+#products form .cards .product_name{
     margin: 8px 0;
     text-align: center;
     font-size: 30px;
 }
 
 
-#products .cards .cards_img{
+#products form .cards .cards_img{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -151,28 +152,28 @@ header #btn{
     overflow: hidden;
 }
 
-#products .cards .cards_img img{
+#products form .cards .cards_img img{
     width: 600px;
     height: 300px;
     transition: 0.5s;
 }
 
-#products .cards .cards_img img:hover{
+#products form .cards .cards_img img:hover{
     transform: scale(1.2);
 }
 
-#products .cards .cards_title .details{
+#products form .cards .cards_title .details{
     margin: 20px 0;
     text-align: center;
 }
 
-#products .cards .price{
+#products form .cards .price{
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-#products .cards .price h2{
+#products form .cards .price h2{
     font-size: 30px;
     color: orangered;
 }
