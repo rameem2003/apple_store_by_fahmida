@@ -78,7 +78,7 @@ header #btn{
 #cover{
     height: 80vh;
     width: 100%;
-    background-image: url("./img/a.jpeg");
+    background-image: url("../img/a.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

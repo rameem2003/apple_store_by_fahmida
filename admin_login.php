@@ -36,7 +36,7 @@
     <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
 
     <!-- local css -->
-    <link rel="stylesheet" href="./admin_login.css">
+    <link rel="stylesheet" href="./css/admin_login.css">
 </head>
 <body>
     <div class="wrapper">

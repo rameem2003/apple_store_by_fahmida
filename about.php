@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
 
     <!-- local css -->
-    <link rel="stylesheet" href="./about.css">
+    <link rel="stylesheet" href="./css/about.css">
 </head>
 <body>
     <!-- header section -->

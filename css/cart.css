@@ -1,0 +1,13 @@
+#product .row{
+    background-color: #DCDCDC;
+}
+
+#product img{
+    width: 50%;
+}
+
+
+#product .trash{
+    font-size: 20px;
+    color: black;
+}

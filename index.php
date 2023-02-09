@@ -1,5 +1,4 @@
 <?php 
-
     include './configuration/connection.php';
 
     if(isset($_POST['add_to_cart'])){
@@ -24,6 +23,12 @@
         }
     }
 
+    // how many items in cart
+    $items  = "SELECT * FROM `cart`";
+    $items_query = mysqli_query($conn, $items);
+    $count = mysqli_num_rows($items_query);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -45,100 +50,17 @@
 
     
     <!-- local css -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
-    <!-- header section -->
-    <header>
-      
-        <div class="logo">
-            <img src="./img/logo.png" alt="logo">
-        </div>
-
-        <label for="btn" class="menu_btn"><i class="fa-solid fa-bars"></i></label>
-        <input type="checkbox" id="btn">
-
-        <nav>
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="about.php">About</a></li>
-                <li><a href="contact.php">Contact</a></li>
-                <li><a href="products.php">Products</a></li>
-                <li><a href="admin_login.php" target="_blank">Admin</a></li>
-                <li id="login_btn"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#user_login">Login</button></li>
-                <li id="reg_btn"><button type="button" class="btn btn-danger ml-2" data-toggle="modal" data-target="#create_account">Register</button></li>
-                <li class="profile_name"><?php include './configuration/login_user.php'; ?></li>
-            </ul>
-        </nav>
-    </header>
-    <!-- main section-->
+    <?php include './header.php' ?>
 
 
-    <!-- user login forms -->
-    <!-- Modal -->
-    <div class="modal fade" id="user_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">User Login</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <form action="" method="POST">
-                <label for="email">Enter Email</label>
-                <input class="form-control" type="email" name="email" id="email">
-                <label for="pass">Enter Password</label>
-                <input class="form-control" type="password" name="pass" id="pass">
-
-                <input class="btn btn-danger mt-3 d-block ml-auto" name="login" type="submit" value="Login">
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-        </div>
-    </div>
-    </div>
-    <!-- user login forms end -->
+    <?php include './login_system.php' ?>
 
 
-    <!-- create account -->
-    <div class="modal fade" id="create_account" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Create Account</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <form action="./configuration/create_user.php" method="POST">
-                <label for="name">Full Name</label>
-                <input class="form-control" type="text" name="name" id="name">
-
-                <label for="phone">Phone</label>
-                <input class="form-control" type="number" name="phone" id="phone">
-
-                <label for="email">Enter Email</label>
-                <input class="form-control" type="email" name="email" id="email">
-
-                <label for="pass">Enter Password</label>
-                <input class="form-control" type="password" name="pass" id="pass">
-
-                <input class="btn btn-primary mt-3 d-block ml-auto" name="register" type="submit" value="Register">
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-        </div>
-    </div>
-    </div>
-    <!-- create account end -->
+    
 
 
     <main>
@@ -189,7 +111,7 @@
 
                                     <div class="price">
                                         <h2>$ <?php echo $row['item_price'] ?></h2>
-                                        <a class="btn btn-primary" href="view_iphone_products.php?viewPhone=<?php echo $row['id']; ?>" target="_blank"><i class="fa-solid fa-cart-shopping"></i> Buy now</a>
+                                        <a class="btn btn-primary" href="view_iphone_products.php?viewPhone=<?php echo $row['id']; ?>" target="_blank"><i class="fa-solid fa-eye"></i> View</a>
                                     </div>
 
                                     <div class="cart mt-3">
@@ -244,7 +166,14 @@
 
                                     <div class="price">
                                         <h2>$ <?php echo $row['item_price'] ?></h2>
-                                        <a class="btn btn-primary" href="view_computer_products.php?viewComputer=<?php echo $row['id']; ?>" target="_blank"><i class="fa-solid fa-cart-shopping"></i> Buy now</a>
+                                        <a class="btn btn-primary" href="view_computer_products.php?viewComputer=<?php echo $row['id']; ?>" target="_blank"><i class="fa-solid fa-eye"></i> View</a>
+                                    </div>
+
+                                    <div class="cart mt-3">
+                                        <input type="hidden" name="product_name" value="<?php echo $row['item_name'] ?>">
+                                        <input type="hidden" name="product_prize" value="<?php echo $row['item_price'] ?>">
+                                        <input type="hidden" name="product_img" value="<?php echo $row['photo'] ?>">
+                                        <input class="btn btn-primary w-100" name="add_to_cart" type="submit" value="Add to Cart">
                                     </div>
                                 </div>
                             </form>
