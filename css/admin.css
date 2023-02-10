@@ -7,7 +7,7 @@
 
 
 body{
-    background-color: blueviolet;
+    background-color: gray;
 }
 
 #addProductsBtn{
@@ -144,7 +144,7 @@ form .logout{
     margin: 20px 0;
 }
 
-.products_list .head h3{
+.products_list .head .welcome{
     font-size: 25px;
     text-transform: capitalize;
 }
@@ -158,7 +158,7 @@ form .logout{
     align-items: center;
     justify-content: space-evenly;
     padding: 10px 10px;
-    background-color: blueviolet;
+    background-color: gray;
     border-radius: 5px;
     color: white;
     font-weight: bold;
@@ -168,4 +168,11 @@ form .logout{
 .products_list .list .row div{
     text-align: center;
     display: block;
+}
+
+.products_list .list .row .delete_btn > a{
+    padding: 5px;
+    border-radius: 5px;
+    background-color: white;
+    color: red;
 }

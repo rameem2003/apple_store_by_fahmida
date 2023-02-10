@@ -25,6 +25,32 @@
 
 ?>
 
+<?php 
+
+    // for delete iphone item
+    include './configuration/connection.php';
+
+    if(isset($_GET['deletePhone'])){
+        $phone_id = $_GET['deletePhone'];
+        mysqli_query($conn, "DELETE FROM `iphone` WHERE id = '$phone_id'");
+        header("location:admin.php");
+    }
+
+?>
+
+<?php 
+
+    // for delete iphone item
+    include './configuration/connection.php';
+
+    if(isset($_GET['deleteComputer'])){
+        $computer_id = $_GET['deleteComputer'];
+        mysqli_query($conn, "DELETE FROM `macbook` WHERE id = '$computer_id'");
+        header("location:admin.php");
+    }
+
+?>
+
 <?php
 
     // for display admin name
@@ -85,7 +111,7 @@
 
             if(mysqli_query($conn, $insert_products)){
                 echo '<script> alert("Upload Success Admin ! Thank you"); </script>';
-                header("location:index.php");
+                header("location:admin.php");
             }else{
                 echo '<script> alert("Something went wrong Admin!"); </script>';
             }
@@ -121,6 +147,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin | Apple Store</title>
     <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
 
     <!-- local css -->
@@ -166,7 +196,7 @@
     <section id="iphone_list" class="products_list">
         <div class="head">
             <h1>Apple Store Dashboard</h1>
-            <h3>Welcome Admin <?php echo $admin_name['admin_user']; ?></h3>
+            <h3 class="welcome">Welcome Admin <?php echo $admin_name['admin_user']; ?></h3>
 
             <h3>List of Iphones (Total <?php echo $total_iphone ?>)</h3>
         </div>
@@ -190,7 +220,7 @@
                     while($iphone_row = mysqli_fetch_assoc($run_iphone)){
                         ?>
 
-                        <div class="row">
+                            <div class="row">
                                 <div class="sl"><?php echo $iphone_row['id']; ?></div>
                                 <div class="name"><?php echo $iphone_row['item_name']; ?></div>
                                 <div class="price"><?php echo $iphone_row['item_price']; ?> $</div>
@@ -198,6 +228,7 @@
                                 <div class="storage"><?php echo $iphone_row['item_storage']; ?> GB</div>
                                 <div class="ram"><?php echo $iphone_row['item_ram']; ?> GB</div>
                                 <div class="screen_size"><?php echo $iphone_row['screen_size']; ?> inch</div>
+                                <div class="delete_btn"><a href="./admin.php?deletePhone=<?php echo $iphone_row['id']; ?>"><i class="fa-solid fa-trash"></i></a></div>
                             </div>
 
                         <?php 
@@ -235,7 +266,7 @@
                     while($computer_row = mysqli_fetch_assoc($run_computer)){
                         ?>
 
-                        <div class="row">
+                            <div class="row">
                                 <div class="sl"><?php echo $computer_row['id']; ?></div>
                                 <div class="name"><?php echo $computer_row['item_name']; ?></div>
                                 <div class="price"><?php echo $computer_row['item_price']; ?> $</div>
@@ -243,6 +274,7 @@
                                 <div class="storage"><?php echo $computer_row['item_storage']; ?> GB</div>
                                 <div class="ram"><?php echo $computer_row['item_ram']; ?> GB</div>
                                 <div class="screen_size"><?php echo $computer_row['screen_size']; ?> inch</div>
+                                <div class="delete_btn"><a href="./admin.php?deleteComputer=<?php echo $computer_row['id']; ?>"><i class="fa-solid fa-trash"></i></a></div>
                             </div>
 
                         <?php 

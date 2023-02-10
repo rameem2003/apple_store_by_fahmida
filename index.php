@@ -110,7 +110,7 @@
                                     </div>
 
                                     <div class="price">
-                                        <h2>$ <?php echo $row['item_price'] ?></h2>
+                                        <h2>৳ <?php echo $row['item_price'] ?></h2>
                                         <a class="btn btn-primary" href="view_iphone_products.php?viewPhone=<?php echo $row['id']; ?>" target="_blank"><i class="fa-solid fa-eye"></i> View</a>
                                     </div>
 
@@ -157,11 +157,11 @@
 
                                     <div class="cards_title">
                                         <h1 class="product_name"><?php echo $row['item_name']; ?></h1>
-                                        <div class="details">
+                                        <!-- <div class="details">
                                             <h4><?php echo $row['item_cpu']; ?> Chip</h4>
                                             <h4> <?php echo $row['item_ram']; ?> GB / <?php echo $row['item_storage'] ?> GB</h4>
                                             <h4> <?php echo $row['screen_size']; ?> inch super ratina xdr display </h4>
-                                        </div>
+                                        </div> -->
                                     </div>
 
                                     <div class="price">
