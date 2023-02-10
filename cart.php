@@ -23,6 +23,19 @@
         header('location:cart.php');
     }
 
+    // update the quantity of items
+    if(isset($_POST['update'])){
+        $update_item_id = $_POST['update_item_id'];
+        $update_quantity = $_POST['update_quantity'];
+
+        $update_quantity_query = "UPDATE `cart` SET quantity = '$update_quantity' WHERE id = '$update_item_id'";
+        mysqli_query($conn, $update_quantity_query);
+        header('location:cart.php');
+
+    }
+
+    
+
 
 ?>
 
@@ -65,9 +78,29 @@
         </div>
 
         <div class="row" id="product">
+            <div class="col-md-12 my-2">
+                <div class="row">
+                    <div class="col-md-2 d-flex align-items-center">
+                        <p>Item</p>
+                    </div>
+                    <div class="col-md-3 d-flex align-items-center">
+                        <p>Item name</p>
+                    </div>
+                    <div class="col-md-3 d-flex align-items-center">
+                        <p>Prize</p>
+                    </div>
+                    <div class="col-md-2 d-flex align-items-center">
+                        <p>Quantity</p>
+                    </div>
+                    <div class="col-md-2 d-flex align-items-center">
+                        <p>Sub total</p>
+                    </div>
+                </div>
+            </div>
             <?php 
 
                 $show_products = "SELECT * FROM `cart`";
+                $grand_total = 0;
                 $show_products_query = mysqli_query($conn, $show_products);
 
                 if(mysqli_num_rows($show_products_query) > 0){
@@ -79,31 +112,50 @@
                                 <div class="col-md-2">
                                     <img class="img-fluid" src="<?php echo "./upload_img/".$row['imege']; ?>" alt="">
                                 </div>
-                                <div class="col-md-4 d-flex align-items-center">
+                                <div class="col-md-2 d-flex align-items-center">
                                     <p class="font-weight-bold"><?php echo $row['name']; ?></p>
                                 </div>
 
-                                <div class="col-md-2 d-flex align-items-center">
-                                    <p>Prize <?php echo $row['prize']; ?> $</p>
+                                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                                    <p><?php echo number_format($row['prize']); ?> $</p>
                                 </div>
 
-                                <div class="col-md-2 d-flex align-items-center">
-                                    <p>Quantity <?php echo $row['quantity']; ?></p>
+                                <div class="col-md-3 d-flex align-items-center">
+                                    
+                                    <form action="" method="post">
+                                        <input type="hidden" name="update_item_id" value="<?php echo $row['id'] ?>">
+                                        <div class="col-md-12 d-flex">
+                                            <input class="input-group" type="number" name="update_quantity" id="" min="1" value="<?php echo $row['quantity']; ?>">
+                                            <input class="btn btn-warning ml-2" name="update" type="submit" value="update">
+                                        </div>
+                                    </form>
                                 </div>
 
-                                <div class="col-md-2 d-flex align-items-center">
+                                
+
+                                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                                    <p><?php echo $sub_total =  $row['prize'] * $row['quantity'] ?></p>
+                                </div>
+
+                                <div class="col-md-1 d-flex align-items-center">
                                     <a class="trash" onclick="return confirm('Are you sure you want to delete this item ?')" href="./cart.php?dl=<?php echo $row['id']; ?>"><i class="fa-solid fa-trash"></i></a>
                                 </div>
                             </div>
                         </div>
-
                         <?php
+                        // echo number_format($sub_total, 2);
+                        $grand_total += $sub_total;
                     }
                 }else{
                     echo "No items added to the cart";
                 }
             
             ?>
+
+
+            <div class="col-md-12 mt-4">
+                <h1 class="text-center text-danger"> Grand total: <?php echo number_format($grand_total) ?> $</h1>
+            </div>
 
         </div>
 
