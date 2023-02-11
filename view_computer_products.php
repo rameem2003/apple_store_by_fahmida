@@ -37,7 +37,7 @@
         </div>
         <div class="right">
             <h1><?php echo $computer['item_name']; ?></h1>
-            <p class="price"> <i class="fa-solid fa-tag"></i> <?php echo $computer['item_price']; ?> $</p>
+            <p class="price"> <i class="fa-solid fa-tag"></i> <?php echo $computer['item_price']; ?> ৳</p>
 
             <h2>Key Feature</h2>
 

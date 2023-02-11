@@ -75,7 +75,7 @@
 
 
         
-        <h1 class="title">Phone Items</h1>
+        <h1 class="title">Phone Item's</h1>
         <section id="products">
 
             <?php 
@@ -132,7 +132,7 @@
             ?>
         </section> 
 
-        <h1 class="title">Other's Apple Products</h1>
+        <h1 class="title">Computer Item's</h1>
         <section id="products">
 
             <?php 

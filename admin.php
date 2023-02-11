@@ -125,7 +125,7 @@
 
             if(mysqli_query($conn, $insert_products)){
                 echo '<script> alert("Upload Success Admin ! Thank you"); </script>';
-                header("location:index.php");
+                header("location:admin.php");
             }else{
                 echo "<script> alert('Something went wrong Admin!'); </script>";
             }
@@ -223,7 +223,7 @@
                             <div class="row">
                                 <div class="sl"><?php echo $iphone_row['id']; ?></div>
                                 <div class="name"><?php echo $iphone_row['item_name']; ?></div>
-                                <div class="price"><?php echo $iphone_row['item_price']; ?> $</div>
+                                <div class="price"><?php echo $iphone_row['item_price']; ?> ৳</div>
                                 <div class="cpu"><?php echo $iphone_row['item_cpu']; ?></div>
                                 <div class="storage"><?php echo $iphone_row['item_storage']; ?> GB</div>
                                 <div class="ram"><?php echo $iphone_row['item_ram']; ?> GB</div>
@@ -269,7 +269,7 @@
                             <div class="row">
                                 <div class="sl"><?php echo $computer_row['id']; ?></div>
                                 <div class="name"><?php echo $computer_row['item_name']; ?></div>
-                                <div class="price"><?php echo $computer_row['item_price']; ?> $</div>
+                                <div class="price"><?php echo $computer_row['item_price']; ?> ৳</div>
                                 <div class="cpu"><?php echo $computer_row['item_cpu']; ?></div>
                                 <div class="storage"><?php echo $computer_row['item_storage']; ?> GB</div>
                                 <div class="ram"><?php echo $computer_row['item_ram']; ?> GB</div>
