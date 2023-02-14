@@ -37,7 +37,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apple Store || By Fahmida Yeasmin</title>
+    <title>Iphone || Apple Store || By Fahmida Yeasmin</title>
     <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
 
     <!-- font awesome -->
@@ -47,94 +47,16 @@
     <!-- bootstrap 4 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-
-    
     <!-- local css -->
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/featured_section.css">
 </head>
 <body>
-
     <?php include './header.php' ?>
 
 
     <?php include './login_system.php' ?>
 
-
-    
-
-
     <main>
-        <section id="cover">
-            <div class="blur">
-                <h1>Apple world</h1>
-                <p>Your favourite apple products is here.</p> <br>
-                <!-- <button><i class="fa-solid fa-cart-shopping"></i> Buy now</button> -->
-            </div>
-          
-        </section>
-
-        <?php include './featured_section.php' ?>
-
-
-        
-        <h1 class="title" id="phone">Phone Item's</h1>
-        <section id="products">
-
-            <?php 
-
-                // php code for display iphones
-            
-                include './configuration/connection.php';
-
-                $get_iphone = "SELECT * FROM `iphone`";
-
-                $run = mysqli_query($conn, $get_iphone);
-
-                if(mysqli_num_rows($run) > 0){
-                    while($row = mysqli_fetch_assoc($run)){
-
-                        ?>
-                            <form action="" method="post">
-                                <div class="cards">
-                                    <div class="cards_img">
-                                        <img src="<?php echo "./upload_img/".$row['photo']; ?>" alt="">
-                                    </div>
-
-                                    <div class="cards_title">
-                                        <h1 class="product_name"><?php echo $row['item_name']; ?></h1>
-                                        <!-- <div class="details">
-                                            <h4><?php echo $row['item_cpu']; ?></h4>
-                                            <h4> <?php echo $row['item_ram']; ?> GB / <?php echo $row['item_storage'] ?> GB</h4>
-                                            <h4> <?php echo $row['screen_size']; ?> inch super ratina xdr display </h4>
-                                        </div> -->
-
-                                        
-                                    </div>
-
-                                    <div class="price">
-                                        <h2>৳ <?php echo $row['item_price'] ?></h2>
-                                        <a class="btn btn-primary" href="view_iphone_products.php?viewPhone=<?php echo $row['id']; ?>" target="_blank"><i class="fa-solid fa-eye"></i> View</a>
-                                    </div>
-
-                                    <div class="cart mt-3">
-                                        <input type="hidden" name="product_name" value="<?php echo $row['item_name'] ?>">
-                                        <input type="hidden" name="product_prize" value="<?php echo $row['item_price'] ?>">
-                                        <input type="hidden" name="product_img" value="<?php echo $row['photo'] ?>">
-                                        <input class="btn btn-primary w-100" name="add_to_cart" type="submit" value="Add to Cart">
-                                    </div>
-
-                                </div>
-                            </form>
-                        <?php
-                    }
-                }else{
-                    echo "DATA NOT FOUND";
-                }
-
-            ?>
-        </section> 
-
         <h1 class="title" id="pc">Computer Item's</h1>
         <section id="products">
 
@@ -190,49 +112,11 @@
             
             ?>
         </section>
-
-
-
-        <section id="others">
-            <div class="left">
-                <div class="box">
-                    <div class="left">
-                        <img src="./img/image12.png" alt="">
-                    </div>
-                    <div class="right">
-                        <h3>Found the New Version</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, est. Quia non aspernatur dignissimos reiciendis.</p>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="left">
-                        <img src="./img/image13.png" alt="">
-                    </div>
-                    <div class="right">
-                        <h3>Free Exchange</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, est. Quia non aspernatur dignissimos reiciendis.</p>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="left">
-                        <img src="./img/image14.png" alt="">
-                    </div>
-                    <div class="right">
-                        <h3> Contact Our Seller</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, est. Quia non aspernatur dignissimos reiciendis.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="right">
-                <img src="./img/XMLID1.png" alt="">
-            </div>
-        </section>
-    
     </main>
 
+
     <?php include './footer.php'; ?>
+
 
     <!-- bootstrap js -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

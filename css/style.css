@@ -9,10 +9,16 @@ body{
     background-color: gainsboro;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 .title{
-    font-size: 50px;
+    font-size: 40px;
     text-align: center;
-    color: crimson;
+    color: black;
+    margin-top: 50px;
+    margin-bottom: 0;
 }
 header{
     background-color: black;
@@ -291,16 +297,20 @@ header #btn{
         text-align: center;
     }
 
-    #products{
+    #products form{
         display: block;
     }
 
-    #products .cards{
+    #products form{
+        width: 90%;
+    }
+
+    #products form .cards{
         width: 90%;
         margin: 20px auto;
     }
 
-    #products .card_title p{
+    #products form .card_title p{
         color: orangered;
         font-weight: bold;
         margin-top: 30px;
