@@ -168,7 +168,7 @@
                                     </div>
 
                                     <div class="price">
-                                        <h2>$ <?php echo $row['item_price'] ?></h2>
+                                        <h2>৳ <?php echo $row['item_price'] ?></h2>
                                         <a class="btn btn-primary" href="view_computer_products.php?viewComputer=<?php echo $row['id']; ?>" target="_blank"><i class="fa-solid fa-eye"></i> View</a>
                                     </div>
 

@@ -117,7 +117,7 @@
                                 </div>
 
                                 <div class="col-md-2 d-flex align-items-center justify-content-center">
-                                    <p><?php echo number_format($row['prize']); ?> $</p>
+                                    <p><?php echo number_format($row['prize']); ?> ৳</p>
                                 </div>
 
                                 <div class="col-md-3 d-flex align-items-center">
@@ -154,7 +154,7 @@
 
 
             <div class="col-md-12 mt-4">
-                <h1 class="text-center text-danger"> Grand total: <?php echo number_format($grand_total) ?> $</h1>
+                <h1 class="text-center text-danger"> Grand total: <?php echo number_format($grand_total) ?> ৳</h1>
             </div>
 
         </div>
