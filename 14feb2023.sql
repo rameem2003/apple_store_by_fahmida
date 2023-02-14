@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 09, 2023 at 05:23 PM
+-- Generation Time: Feb 14, 2023 at 05:24 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -30,16 +30,17 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin` (
   `id` int(255) NOT NULL,
   `admin_user` varchar(255) NOT NULL,
-  `admin_pass` varchar(255) NOT NULL
+  `admin_pass` varchar(255) NOT NULL,
+  `fullname` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `admin_user`, `admin_pass`) VALUES
-(1, 'rameem', '12345'),
-(3, 'fahmida', '451628');
+INSERT INTO `admin` (`id`, `admin_user`, `admin_pass`, `fullname`) VALUES
+(1, 'rameem', '451638', 'Mahmood Hassan Rameem'),
+(3, 'fahmida', '451628', 'Fahmida Yeasmin');
 
 -- --------------------------------------------------------
 
@@ -77,10 +78,14 @@ CREATE TABLE `iphone` (
 --
 
 INSERT INTO `iphone` (`id`, `item_name`, `item_price`, `item_cpu`, `item_ram`, `item_storage`, `screen_size`, `photo`) VALUES
-(3, 'Iphone 14 pro max', 1200, 'Bionic A16', '12', '512', '6.7', 'iphone13.jpg'),
-(4, 'Iphone 13 pro max', 1200, 'Bionic A16', '8', '256', '6.7', 'iphone13.jpg'),
-(5, 'Iphone 14', 1500, 'Bionic A16', '8', '512', '6.7', 'iphone12.jpg'),
-(6, 'Iphone 14 MINI', 1000, 'Bionic A15', '8', '128', '6.7', 'iPhone-14-Mini.jpg');
+(9, 'Iphone 14 Pro Max', 191000, 'Bionic A16', '6', '512', '6.7', 'iphone14promax.jpg'),
+(10, 'Iphone 14 Pro', 180000, 'Bionic A16', '6', '512', '6.7', 'iphone14pro.jpg'),
+(11, 'Iphone 14 Plus', 110000, 'Bionic A15', '6', '256', '6.7', 'iphone14plus.jpg'),
+(12, 'Iphone 14', 98000, 'Bionic A15', '6', '256', '6.1', 'iphone14.jpg'),
+(13, 'Iphone 13 Pro Max', 150000, 'Bionic A15', '6', '512', '6.7', 'iphone13promax.jpg'),
+(14, 'Iphone 13 Pro', 128000, 'Bionic A15', '6', '128', '6.1', 'iphone13pro.jpg'),
+(15, 'Iphone 13 Mini', 95000, 'Bionic A15', '6', '256', '5.4', 'iphone13mini.jpg'),
+(17, 'Iphone 13', 96000, 'Bionic A15', '6', '256', '6.1', 'iphone13new.jpg');
 
 -- --------------------------------------------------------
 
@@ -96,7 +101,7 @@ CREATE TABLE `macbook` (
   `item_ram` varchar(100) NOT NULL,
   `item_storage` varchar(100) NOT NULL,
   `screen_size` varchar(100) NOT NULL,
-  `photo` varchar(20) NOT NULL
+  `photo` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -104,9 +109,14 @@ CREATE TABLE `macbook` (
 --
 
 INSERT INTO `macbook` (`id`, `item_name`, `item_price`, `item_cpu`, `item_ram`, `item_storage`, `screen_size`, `photo`) VALUES
-(1, 'Macbook Air', 1200, 'Apple M2', '16', '512', '13.3', 'macbook.jpg'),
-(2, 'Macbook Pro', 2500, 'Apple M1 Pro', '16', '512', '16', 'MacBook_Pro_14.jpg'),
-(3, 'IMAC Pro', 5000, 'Apple M1', '16', '512', '24', 'imac.jpg');
+(4, 'Macbook Pro 13\"', 161000, 'Apple M2 Chip', '8', '256', '13.3', 'macbookpro.jpg'),
+(5, 'Macbook Pro 13\"', 138000, 'Apple M1 Chip', '8', '512', '13.3', 'macbookpro1.jpg'),
+(6, 'Macbook Pro 14\"', 285000, 'Apple M2 Pro Chip', '16', '1024', '14.2', 'macbookpro14inch1.jpg'),
+(7, 'Macbook Pro 14\"', 295000, 'Apple M2 Max Chip', '16', '512', '14.2', 'macbookpro14inch2.jpg'),
+(8, 'IMAC M1 2021', 217000, 'Apple M1 Chip', '8', '512', '24', 'imac1.jpg'),
+(9, 'IMAC M1', 190000, 'Apple M1 Chip', '8', '256', '24', 'imac2.jpg'),
+(10, 'MAC Studio Max', 235000, 'Apple M1 Max Chip', '32', '512', 'Upto 24 ', 'macS1.jpg'),
+(11, 'MAC Studio Ultra', 250000, 'Apple M1 Ultra Chip', '128', '1024', 'Upto 24', 'macS1.jpg');
 
 -- --------------------------------------------------------
 
@@ -178,19 +188,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `iphone`
 --
 ALTER TABLE `iphone`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `macbook`
 --
 ALTER TABLE `macbook`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users`
