@@ -40,7 +40,7 @@
 
 <?php 
 
-    // for delete iphone item
+    // for delete computer item
     include './configuration/connection.php';
 
     if(isset($_GET['deleteComputer'])){
@@ -80,6 +80,22 @@
     }
 
     
+
+?>
+
+<?php
+
+    // create new admin
+    include './configuration/connection.php';
+    if(isset($_POST['addAdmin'])){
+        $adminFullName = $_POST['fullName'];
+        $adminUserName = $_POST['userName'];
+        $adminPass = $_POST['newPass'];
+
+        $insert_admin = "INSERT INTO `admin` (admin_user, admin_pass, fullName) VALUES ('$adminUserName', '$adminPass', '$adminFullName')";
+
+        mysqli_query($conn, $insert_admin);
+    }
 
 ?>
 
@@ -151,6 +167,9 @@
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 
 
     <!-- local css -->
@@ -159,6 +178,7 @@
 <body>
 
     <button id="addProductsBtn">Add products</button>
+    <button id="newAdmin">New Admin</button>
     <a class="mainLogout" href="admin.php?logout=<?php echo $admin_id ?>">Logout</a>
 
     <!-- products upload -->
@@ -191,6 +211,21 @@
     <!-- products upload end -->
 
 
+    <!-- add new admin -->
+    <form id="adminForm" action="" method="post">
+        <div class="head">
+            <h1>Register New Admin</h1>
+            <button id="closeAdminForm"><i class="fas fa-times-circle"></i></button>
+        </div>
+        
+        <input type="text" name="fullName" id="" placeholder="Enter Full name.........">
+        <input type="text" name="userName" id="" placeholder="Create user name..........">
+        <input type="password" name="newPass" id="" placeholder="Create password..........">
+        <input type="submit" name="addAdmin" value="Register">
+    </form>
+    <!-- add new admin end -->
+
+
 
     <!-- list of apple phones -->
     <section id="iphone_list" class="products_list">
@@ -201,17 +236,19 @@
             <h3>List of Iphones (Total <?php echo $total_iphone ?>)</h3>
         </div>
 
-        <div class="list">
-            <div class="row">
-                <div class="sl">SL</div>
-                <div class="name">Product Name</div>
-                <div class="price">Price</div>
-                <div class="cpu">Processor</div>
-                <div class="storage">Storage</div>
-                <div class="ram">Ram</div>
-                <div class="screen_size">Screen Size</div>
-            </div>
-
+        <table class="table table-hover table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">SL</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Prize</th>
+                    <th scope="col">Procossor</th>
+                    <th scope="col">Storage</th>
+                    <th scope="col">Ram</th>
+                    <th scope="col">Screen Size</th>
+                </tr>
+            </thead>
+            <tbody>
 
             <?php
 
@@ -220,23 +257,26 @@
                     while($iphone_row = mysqli_fetch_assoc($run_iphone)){
                         ?>
 
-                            <div class="row">
-                                <div class="sl"><?php echo $iphone_row['id']; ?></div>
-                                <div class="name"><?php echo $iphone_row['item_name']; ?></div>
-                                <div class="price"><?php echo $iphone_row['item_price']; ?> ৳</div>
-                                <div class="cpu"><?php echo $iphone_row['item_cpu']; ?></div>
-                                <div class="storage"><?php echo $iphone_row['item_storage']; ?> GB</div>
-                                <div class="ram"><?php echo $iphone_row['item_ram']; ?> GB</div>
-                                <div class="screen_size"><?php echo $iphone_row['screen_size']; ?> inch</div>
-                                <div class="delete_btn"><a href="./admin.php?deletePhone=<?php echo $iphone_row['id']; ?>"><i class="fa-solid fa-trash"></i></a></div>
-                            </div>
+                            <tr>
+                                <th scope="row"><?php echo $iphone_row['id']; ?></</th>
+                                <td><?php echo $iphone_row['item_name']; ?></td>
+                                <td><?php echo $iphone_row['item_price']; ?> ৳</td>
+                                <td><?php echo $iphone_row['item_cpu']; ?></</td>
+                                <td><?php echo $iphone_row['item_storage']; ?> GB</td>
+                                <td><?php echo $iphone_row['item_ram']; ?> GB</td>
+                                <td><?php echo $iphone_row['screen_size']; ?> inch</td>
+                                <td><a href="./admin.php?deletePhone=<?php echo $iphone_row['id']; ?>"><i class="fa-solid fa-trash"></i></a></td>
+                                <td><a target="_blank" href="./view_iphone_products.php?viewPhone=<?php echo $iphone_row['id']; ?>"><i class="fas fa-eye"></i></a></td>
+                            </tr>
 
                         <?php 
                     }
                 }
 
             ?>
-        </div>
+                
+            </tbody>
+        </table>
 
     </section>
     <!-- list of apple phones end -->
@@ -248,41 +288,47 @@
             <h3>List of Computer (Total <?php echo $total_computer ?>) </h3>
         </div>
 
-        <div class="list">
-            <div class="row">
-                <div class="sl">SL</div>
-                <div class="name">Product Name</div>
-                <div class="price">Price</div>
-                <div class="cpu">Processor</div>
-                <div class="storage">Storage</div>
-                <div class="ram">Ram</div>
-                <div class="screen_size">Screen Size</div>
-            </div>
-
+        <table class="table table-hover table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">SL</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Prize</th>
+                    <th scope="col">Procossor</th>
+                    <th scope="col">Storage</th>
+                    <th scope="col">Ram</th>
+                    <th scope="col">Screen Size</th>
+                </tr>
+            </thead>
+            <tbody>
 
             <?php
-                // for display all computers in table
+
+                // for display all iphones in table
                 if(mysqli_num_rows($run_computer) > 0){
                     while($computer_row = mysqli_fetch_assoc($run_computer)){
                         ?>
 
-                            <div class="row">
-                                <div class="sl"><?php echo $computer_row['id']; ?></div>
-                                <div class="name"><?php echo $computer_row['item_name']; ?></div>
-                                <div class="price"><?php echo $computer_row['item_price']; ?> ৳</div>
-                                <div class="cpu"><?php echo $computer_row['item_cpu']; ?></div>
-                                <div class="storage"><?php echo $computer_row['item_storage']; ?> GB</div>
-                                <div class="ram"><?php echo $computer_row['item_ram']; ?> GB</div>
-                                <div class="screen_size"><?php echo $computer_row['screen_size']; ?> inch</div>
-                                <div class="delete_btn"><a href="./admin.php?deleteComputer=<?php echo $computer_row['id']; ?>"><i class="fa-solid fa-trash"></i></a></div>
-                            </div>
+                            <tr>
+                                <th scope="row"><?php echo $computer_row['id']; ?></</th>
+                                <td><?php echo $computer_row['item_name']; ?></td>
+                                <td><?php echo $computer_row['item_price']; ?> ৳</td>
+                                <td><?php echo $computer_row['item_cpu']; ?></</td>
+                                <td><?php echo $computer_row['item_storage']; ?> GB</td>
+                                <td><?php echo $computer_row['item_ram']; ?> GB</td>
+                                <td><?php echo $computer_row['screen_size']; ?> inch</td>
+                                <td><a href="./admin.php?deleteComputer=<?php echo $computer_row['id']; ?>"><i class="fa-solid fa-trash"></i></a></td>
+                                <td><a target="_blank" href="./view_computer_products.php?viewComputer=<?php echo $computer_row['id']; ?>"><i class="fas fa-eye"></i></a></td>
+                            </tr>
 
                         <?php 
                     }
                 }
 
             ?>
-        </div>
+                
+            </tbody>
+        </table>
 
     </section>
     <!-- list of apple computer end -->
@@ -291,6 +337,8 @@
 
     <script>
         const addProductsBtn = document.getElementById("addProductsBtn");
+        const newAdmin = document.getElementById("newAdmin");
+        const closeAdminForm = document.getElementById("closeAdminForm");
         
         addProductsBtn.addEventListener("click", () => {
             const productsForm = document.getElementById("productsForm");
@@ -298,6 +346,25 @@
             document.getElementById("computer_list").classList.toggle("blur");
             productsForm.classList.toggle("expand");
         });
+
+
+        newAdmin.addEventListener("click", () => {
+            const adminForm = document.getElementById("adminForm");
+            document.getElementById("iphone_list").classList.toggle("blur");
+            document.getElementById("computer_list").classList.toggle("blur");
+            adminForm.classList.toggle("expand");
+        })
+        
+        closeAdminForm.addEventListener("click", () => {
+            const adminForm = document.getElementById("adminForm");
+            adminForm.classList.remove("expand")
+
+        })
     </script>
+
+    <!-- bootstrap js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

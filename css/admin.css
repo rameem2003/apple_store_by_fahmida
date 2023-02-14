@@ -24,6 +24,20 @@ body{
     cursor: pointer;
 }
 
+#newAdmin{
+    padding: 10px 10px;
+    font-size: 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    position: fixed;
+    top: 10px;
+    right: 330px;
+    cursor: pointer;
+}
+
 .mainLogout{
     position: fixed;
     top: 10px;
@@ -44,11 +58,35 @@ form{
     padding: 5px;
     border-radius: 8px;
     position: absolute;
-    top: -800px;
+    top: -1200px;
     left: 50%;
     transform: translateX(-50%);
     transition: 0.5s linear;
     z-index: 10000;
+}
+
+form .head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+form .head h1{
+    display: inline-block;
+}
+
+form button{
+    padding: 12px;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+form button i{
+    font-size: 12px;
 }
 
 form.expand{
@@ -149,30 +187,6 @@ form .logout{
     text-transform: capitalize;
 }
 
-.products_list .list{
-    margin-top: 30px;
-}
-
-.products_list .list .row{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 10px 10px;
-    background-color: gray;
-    border-radius: 5px;
+.products_list table tr a{
     color: white;
-    font-weight: bold;
-    margin: 20px 0;
-}
-
-.products_list .list .row div{
-    text-align: center;
-    display: block;
-}
-
-.products_list .list .row .delete_btn > a{
-    padding: 5px;
-    border-radius: 5px;
-    background-color: white;
-    color: red;
 }
