@@ -1,3 +1,36 @@
+<?php 
+    include './configuration/connection.php';
+
+    if(isset($_POST['add_to_cart'])){
+        $product_name = $_POST['product_name'];
+        $product_prize = $_POST['product_prize'];
+        $product_img = $_POST['product_img'];
+        $product_quantity = 1;
+
+        // if the product is already listed in cart
+        $search_cart = "SELECT * FROM `cart` WHERE name = '$product_name'";
+        $run_search_cart = mysqli_query($conn, $search_cart);
+
+        if(mysqli_num_rows($run_search_cart) > 0){
+            echo '<script> alert("Item already added to cart"); </script>';
+        }else{
+            $load_to_cart = "INSERT INTO `cart` (name, prize, imege, quantity) VALUES('$product_name', '$product_prize', '$product_img', '$product_quantity')";
+
+            mysqli_query($conn, $load_to_cart);
+
+            echo '<script> alert("Item added to cart"); </script>';
+
+        }
+    }
+
+    // how many items in cart
+    $items  = "SELECT * FROM `cart`";
+    $items_query = mysqli_query($conn, $items);
+    $count = mysqli_num_rows($items_query);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,31 +40,19 @@
     <title>About Developer</title>
     <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
 
+    <!-- bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <!-- local css -->
+    
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/about.css">
+    
 </head>
 <body>
-    <!-- header section -->
-    <header>
-      
-        <div class="logo">
-            <img src="./img/logo.png" alt="logo">
-        </div>
+    <?php include './header.php' ?>
 
-        <label for="btn" class="menu_btn"><i class="fa-solid fa-bars"></i></label>
-        <input type="checkbox" id="btn">
-
-        <nav>
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="about.php">About</a></li>
-                <li><a href="contact.php">Contact</a></li>
-                <li><a href="products.php">Products</a></li>
-                <li><a href="admin_login.php" target="_blank">Admin</a></li>
-            </ul>
-        </nav>
-    </header>
-    <!-- main section-->
+    <?php include './login_system.php' ?>
 
 
     <div id="wrapper">
@@ -51,16 +72,6 @@
                     <h3>Fahmida Yeasmin</h3>
                     <p class="tag">Computer Technology</p>
                     <p>Project Owner</p>
-                    <div class="progress">
-                        <p>HTML 100%</p>
-                        <progress id="file" value="100" max="100"></progress>
-                        <p>CSS 90%</p>
-                        <progress id="file" value="90" max="100"></progress>
-                        <p>JavaScript 40%</p>
-                        <progress id="file" value="40" max="100"></progress>
-                        <p>PHP 30%</p>
-                        <progress id="file" value="30" max="100"></progress>
-                    </div>
                 </div>
             </div>
 
@@ -75,16 +86,6 @@
                     <h3>Mahmood Hassan Rameem</h3>
                     <p class="tag">Computer Technology</p>
                     <p>Associate Partner</p>
-                    <div class="progress">
-                        <p>HTML 100%</p>
-                        <progress id="file" value="100" max="100"></progress>
-                        <p>CSS 90%</p>
-                        <progress id="file" value="90" max="100"></progress>
-                        <p>JavaScript 60%</p>
-                        <progress id="file" value="60" max="100"></progress>
-                        <p>PHP 40%</p>
-                        <progress id="file" value="40" max="100"></progress>
-                    </div>
                 </div>
             </div>
         </div>
@@ -103,5 +104,10 @@
     </div>
 
     <?php include './footer.php'; ?>
+
+    <!-- bootstrap js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

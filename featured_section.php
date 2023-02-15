@@ -18,14 +18,14 @@
         </div>
 
         <div class="col-md-2 my-2">
-            <a href="#">
+            <a href="./computers.php">
                 <i class="fas fa-desktop-alt"></i>
                 <p>IMac</p>
             </a>
         </div>
 
         <div class="col-md-2 my-2">
-            <a href="#">
+            <a href="./ipad.php">
                 <i class="fas fa-tablet-alt"></i>
                 <p>IPad</p>
             </a>
@@ -34,14 +34,14 @@
         <div class="col-md-2 my-2">
             <a href="#">
             <i class="fas fa-clock"></i>
-                <p>I Watch</p>
+                <p>Apple Watch</p>
             </a>
         </div>
 
         <div class="col-md-2 my-2">
             <a href="#">
-                <i class="fas fa-headphones-alt"></i>
-                <p>Buds</p>
+                <i class="fas fa-tv"></i>
+                <p>Apple TV</p>
             </a>
         </div>
     </div>

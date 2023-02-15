@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2023 at 05:24 PM
+-- Generation Time: Feb 15, 2023 at 05:34 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -55,6 +55,33 @@ CREATE TABLE `cart` (
   `imege` varchar(255) NOT NULL,
   `quantity` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ipad`
+--
+
+CREATE TABLE `ipad` (
+  `id` int(11) NOT NULL,
+  `item_name` varchar(255) NOT NULL,
+  `item_price` int(255) NOT NULL,
+  `item_cpu` varchar(255) NOT NULL,
+  `item_ram` varchar(255) NOT NULL,
+  `item_storage` varchar(255) NOT NULL,
+  `screen_size` varchar(255) NOT NULL,
+  `photo` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ipad`
+--
+
+INSERT INTO `ipad` (`id`, `item_name`, `item_price`, `item_cpu`, `item_ram`, `item_storage`, `screen_size`, `photo`) VALUES
+(1, 'IPad 10 9th Gen', 53000, 'Bionic A13', '3', '64', '10.2', 'ipad10.jpg'),
+(2, 'IPad Pro M2', 127500, 'Apple M2 Chip', '8', '128', '12.9', 'iPad-Pro-M2.jpg'),
+(3, 'IPad Pro M1', 123000, 'Apple M1 Chip', '8', '128', '12.9', 'ipadProM1.jpg'),
+(4, 'IPad Pro M2', 105500, 'Apple M2 Chip', '8', '128', '11', 'iPad-Pro-M2-2022.jpg');
 
 -- --------------------------------------------------------
 
@@ -157,6 +184,12 @@ ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `ipad`
+--
+ALTER TABLE `ipad`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `iphone`
 --
 ALTER TABLE `iphone`
@@ -188,7 +221,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `ipad`
+--
+ALTER TABLE `ipad`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `iphone`

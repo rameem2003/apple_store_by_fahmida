@@ -25,6 +25,21 @@
 
 ?>
 
+
+<?php 
+
+    // for display ipad
+    include './configuration/connection.php';
+
+    $run_ipad_list_query = "SELECT * FROM `ipad`";
+
+    $run_ipad = mysqli_query($conn, $run_ipad_list_query);
+
+    $total_ipad = mysqli_num_rows($run_ipad);
+
+
+?>
+
 <?php 
 
     // for delete iphone item
@@ -147,6 +162,20 @@
             }
         }
 
+        elseif($catagory == "ipad"){
+            $insert_products = "INSERT INTO `ipad` (item_name, item_price, item_cpu, item_ram, item_storage, screen_size, photo) VALUES ('$item', '$price', '$cpu', '$ram', '$storage', '$screen', '$image')";
+
+            move_uploaded_file($image_tmp_name, $image_folder);
+
+
+            if(mysqli_query($conn, $insert_products)){
+                echo '<script> alert("Upload Success Admin ! Thank you"); </script>';
+                header("location:admin.php");
+            }else{
+                echo "<script> alert('Something went wrong Admin!'); </script>";
+            }
+        }
+
 
         
         
@@ -193,6 +222,7 @@
         <select class="option" name="op" id="">
             <option value="iphone">Iphone</option>
             <option value="mac">MacBook, iMac Computer</option>
+            <option value="ipad">IPad Series</option>
         </select>
 
         <h3>Device specification.....</h3>
@@ -332,6 +362,58 @@
 
     </section>
     <!-- list of apple computer end -->
+
+
+    <!-- list of apple ipad -->
+    <section id="computer_list" class="products_list">
+        <div class="head">
+            <h3>List of IPad (Total <?php echo $total_ipad ?>) </h3>
+        </div>
+
+        <table class="table table-hover table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">SL</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Prize</th>
+                    <th scope="col">Procossor</th>
+                    <th scope="col">Storage</th>
+                    <th scope="col">Ram</th>
+                    <th scope="col">Screen Size</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            <?php
+
+                // for display all iphones in table
+                if(mysqli_num_rows($run_ipad) > 0){
+                    while($ipad_row = mysqli_fetch_assoc($run_ipad)){
+                        ?>
+
+                            <tr>
+                                <th scope="row"><?php echo $ipad_row['id']; ?></</th>
+                                <td><?php echo $ipad_row['item_name']; ?></td>
+                                <td><?php echo $ipad_row['item_price']; ?> ৳</td>
+                                <td><?php echo $ipad_row['item_cpu']; ?></</td>
+                                <td><?php echo $ipad_row['item_storage']; ?> GB</td>
+                                <td><?php echo $ipad_row['item_ram']; ?> GB</td>
+                                <td><?php echo $ipad_row['screen_size']; ?> inch</td>
+                                <td><a href="./admin.php?deleteIpad=<?php echo $ipad_row['id']; ?>"><i class="fa-solid fa-trash"></i></a></td>
+                                <td><a target="_blank" href="./view_ipad_products.php?viewIpad=<?php echo $ipad_row['id']; ?>"><i class="fas fa-eye"></i></a></td>
+                            </tr>
+
+                        <?php 
+                    }
+                }
+
+            ?>
+                
+            </tbody>
+        </table>
+
+    </section>
+    <!-- list of apple ipad end -->
 
 
 
