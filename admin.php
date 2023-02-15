@@ -1,6 +1,6 @@
+<!-- for display iphones list -->
 <?php
 
-    // for display iphones list
     include './configuration/connection.php';
 
     $run_iphone_list_query = "SELECT * FROM `iphone`";
@@ -12,9 +12,10 @@
 
 ?>
 
+
+<!-- for display computer -->
 <?php
 
-    // for display computer
     include './configuration/connection.php';
 
     $run_computer_list_query = "SELECT * FROM `macbook`";
@@ -26,9 +27,9 @@
 ?>
 
 
+<!-- for display ipad -->
 <?php 
 
-    // for display ipad
     include './configuration/connection.php';
 
     $run_ipad_list_query = "SELECT * FROM `ipad`";
@@ -40,9 +41,43 @@
 
 ?>
 
+<!-- for display watch -->
 <?php 
 
-    // for delete iphone item
+    include './configuration/connection.php';
+
+    $run_watch_list_query = "SELECT * FROM `watch`";
+
+    $run_watch = mysqli_query($conn, $run_watch_list_query);
+
+    $total_watch = mysqli_num_rows($run_watch);
+
+
+?>
+
+
+<!-- for display tv -->
+<?php 
+
+    include './configuration/connection.php';
+
+    $run_tv_list_query = "SELECT * FROM `tv`";
+
+    $run_tv = mysqli_query($conn, $run_tv_list_query);
+
+    $total_tv = mysqli_num_rows($run_tv);
+
+
+?>
+
+
+
+
+
+
+<!-- for delete iphone item -->
+<?php 
+
     include './configuration/connection.php';
 
     if(isset($_GET['deletePhone'])){
@@ -53,9 +88,9 @@
 
 ?>
 
+<!-- for delete computer item -->
 <?php 
 
-    // for delete computer item
     include './configuration/connection.php';
 
     if(isset($_GET['deleteComputer'])){
@@ -66,9 +101,23 @@
 
 ?>
 
+
+<!-- for delete ipad item -->
 <?php
 
-    // for display admin name
+    include './configuration/connection.php';
+    if(isset($_GET['deleteIpad'])){
+        $ipad_id = $_GET['deleteIpad'];
+        mysqli_query($conn, "DELETE FROM `ipad` WHERE id = '$ipad_id'");
+        header("location:admin.php");
+    }
+
+?>
+
+
+<!-- for display admin name -->
+<?php
+
     include './configuration/connection.php';
 
     session_start();
@@ -98,9 +147,11 @@
 
 ?>
 
+
+
+<!-- create new admin -->
 <?php
 
-    // create new admin
     include './configuration/connection.php';
     if(isset($_POST['addAdmin'])){
         $adminFullName = $_POST['fullName'];
@@ -114,9 +165,11 @@
 
 ?>
 
+
+
+<!-- Upload products -->
 <?php
 
-    //Upload products
     include "./configuration/connection.php";
 
 
@@ -176,6 +229,34 @@
             }
         }
 
+        elseif($catagory == "watch"){
+            $insert_products = "INSERT INTO `watch` (item_name, item_price, item_cpu, item_ram, item_storage, screen_size, photo) VALUES ('$item', '$price', '$cpu', '$ram', '$storage', '$screen', '$image')";
+
+            move_uploaded_file($image_tmp_name, $image_folder);
+
+
+            if(mysqli_query($conn, $insert_products)){
+                echo '<script> alert("Upload Success Admin ! Thank you"); </script>';
+                header("location:admin.php");
+            }else{
+                echo "<script> alert('Something went wrong Admin!'); </script>";
+            }
+        }
+
+        elseif($catagory == "ipad"){
+            $insert_products = "INSERT INTO `tv` (item_name, item_price, item_cpu, item_ram, item_storage, screen_size, photo) VALUES ('$item', '$price', '$cpu', '$ram', '$storage', '$screen', '$image')";
+
+            move_uploaded_file($image_tmp_name, $image_folder);
+
+
+            if(mysqli_query($conn, $insert_products)){
+                echo '<script> alert("Upload Success Admin ! Thank you"); </script>';
+                header("location:admin.php");
+            }else{
+                echo "<script> alert('Something went wrong Admin!'); </script>";
+            }
+        }
+
 
         
         
@@ -223,6 +304,8 @@
             <option value="iphone">Iphone</option>
             <option value="mac">MacBook, iMac Computer</option>
             <option value="ipad">IPad Series</option>
+            <option value="watch">Apple Watch Series</option>
+            <option value="tv">Apple TV</option>
         </select>
 
         <h3>Device specification.....</h3>
@@ -230,7 +313,7 @@
             <input type="text" name="cpu" id="" placeholder="Cpu specification">
             <input type="number" name="ram" id="" placeholder="Ram specification">
             <input type="number" name="storage" id="" placeholder="Storage specification">
-            <input type="text" name="screen" id="" placeholder="Screen Size">
+            <input type="text" name="screen" id="" placeholder="Screen Size / Device Size">
         </div>
 
         <input type="file" name="image" id="" accept="image/jpeg, image/png, image/jpg">
@@ -301,6 +384,8 @@
 
                         <?php 
                     }
+                }else{
+                    echo "Item Not Found";
                 }
 
             ?>
@@ -353,6 +438,8 @@
 
                         <?php 
                     }
+                }else{
+                    echo "Item Not Found";
                 }
 
             ?>
@@ -405,6 +492,8 @@
 
                         <?php 
                     }
+                }else{
+                    echo "Item Not Found";
                 }
 
             ?>
@@ -414,6 +503,113 @@
 
     </section>
     <!-- list of apple ipad end -->
+
+
+    <!-- list of apple watch -->
+    <section id="computer_list" class="products_list">
+        <div class="head">
+            <h3>List of Apple Watch (Total <?php echo $total_watch ?>) </h3>
+        </div>
+
+        <table class="table table-hover table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">SL</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Prize</th>
+                    <th scope="col">Procossor</th>
+                    <th scope="col">Storage</th>
+                    <th scope="col">Ram</th>
+                    <th scope="col">Screen Size</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            <?php
+
+                // for display all watch in table
+                if(mysqli_num_rows($run_watch) > 0){
+                    while($watch_row = mysqli_fetch_assoc($run_watch)){
+                        ?>
+
+                            <tr>
+                                <th scope="row"><?php echo $watch_row['id']; ?></</th>
+                                <td><?php echo $watch_row['item_name']; ?></td>
+                                <td><?php echo $watch_row['item_price']; ?> ৳</td>
+                                <td><?php echo $watch_row['item_cpu']; ?></</td>
+                                <td><?php echo $watch_row['item_storage']; ?> GB</td>
+                                <td><?php echo $watch_row['item_ram']; ?> GB</td>
+                                <td><?php echo $watch_row['screen_size']; ?> inch</td>
+                                <td><a href="./admin.php?deleteWatch=<?php echo $watch_row['id']; ?>"><i class="fa-solid fa-trash"></i></a></td>
+                                <td><a target="_blank" href="./view_watch_products.php?viewWatch=<?php echo $watch_row['id']; ?>"><i class="fas fa-eye"></i></a></td>
+                            </tr>
+
+                        <?php 
+                    }
+                }else{
+                    echo "Item Not Found";
+                }
+
+            ?>
+                
+            </tbody>
+        </table>
+
+    </section>
+    <!-- list of apple watch end -->
+
+    <!-- list of apple tv -->
+    <section id="computer_list" class="products_list">
+        <div class="head">
+            <h3>List of Apple TV (Total <?php echo $total_tv ?>) </h3>
+        </div>
+
+        <table class="table table-hover table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">SL</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Prize</th>
+                    <th scope="col">Procossor</th>
+                    <th scope="col">Storage</th>
+                    <th scope="col">Ram</th>
+                    <th scope="col">Screen Size</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            <?php
+
+                // for display all tv in table
+                if(mysqli_num_rows($run_tv) > 0){
+                    while($tv_row = mysqli_fetch_assoc($run_tv)){
+                        ?>
+
+                            <tr>
+                                <th scope="row"><?php echo $tv_row['id']; ?></</th>
+                                <td><?php echo $tv_row['item_name']; ?></td>
+                                <td><?php echo $tv_row['item_price']; ?> ৳</td>
+                                <td><?php echo $tv_row['item_cpu']; ?></</td>
+                                <td><?php echo $tv_row['item_storage']; ?> GB</td>
+                                <td><?php echo $tv_row['item_ram']; ?> GB</td>
+                                <td><?php echo $tv_row['screen_size']; ?> inch</td>
+                                <td><a href="./admin.php?deleteTv=<?php echo $tv_row['id']; ?>"><i class="fa-solid fa-trash"></i></a></td>
+                                <td><a target="_blank" href="./view_tv_products.php?viewTv=<?php echo $tv_row['id']; ?>"><i class="fas fa-eye"></i></a></td>
+                            </tr>
+
+                        <?php 
+                    }
+                }else{
+                    echo "Item Not Found";
+                }
+
+            ?>
+                
+            </tbody>
+        </table>
+
+    </section>
+    <!-- list of apple watch end -->
 
 
 

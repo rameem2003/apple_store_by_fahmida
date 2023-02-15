@@ -196,7 +196,7 @@
 
             <?php 
 
-                // php code for display computers
+                // php code for display ipad
 
                 include './configuration/connection.php';
 
@@ -226,6 +226,118 @@
                                     <div class="price">
                                         <h2>৳ <?php echo $row['item_price'] ?></h2>
                                         <a class="btn btn-primary" href="view_ipad_products.php?viewIpad=<?php echo $row['id']; ?>" target="_blank"><i class="fa-solid fa-eye"></i> View</a>
+                                    </div>
+
+                                    <div class="cart mt-3">
+                                        <input type="hidden" name="product_name" value="<?php echo $row['item_name'] ?>">
+                                        <input type="hidden" name="product_prize" value="<?php echo $row['item_price'] ?>">
+                                        <input type="hidden" name="product_img" value="<?php echo $row['photo'] ?>">
+                                        <input class="btn btn-primary w-100" name="add_to_cart" type="submit" value="Add to Cart">
+                                    </div>
+                                </div>
+                            </form>
+
+                        <?php
+                    }
+                }
+                else{
+                    echo "NO DATA FOUND";
+                }
+            
+            ?>
+        </section>
+
+        <h1 class="title" id="pc">Apple Watch Item's</h1>
+        <section id="products">
+
+            <?php 
+
+                // php code for display watch
+
+                include './configuration/connection.php';
+
+                $get_watch = "SELECT * FROM `watch`";
+
+                $run = mysqli_query($conn, $get_watch);
+
+                if(mysqli_num_rows($run) > 0){
+                    while($row = mysqli_fetch_assoc($run)){
+
+                        ?>
+                            <form action="" method="post">
+                                <div class="cards">
+                                    <div class="cards_img">
+                                        <img src="<?php echo './upload_img/'. $row['photo']; ?>" alt="">
+                                    </div>
+
+                                    <div class="cards_title">
+                                        <h1 class="product_name"><?php echo $row['item_name']; ?></h1>
+                                        <!-- <div class="details">
+                                            <h4><?php echo $row['item_cpu']; ?> Chip</h4>
+                                            <h4> <?php echo $row['item_ram']; ?> GB / <?php echo $row['item_storage'] ?> GB</h4>
+                                            <h4> <?php echo $row['screen_size']; ?> inch super ratina xdr display </h4>
+                                        </div> -->
+                                    </div>
+
+                                    <div class="price">
+                                        <h2>৳ <?php echo $row['item_price'] ?></h2>
+                                        <a class="btn btn-primary" href="view_watch_products.php?viewWatch=<?php echo $row['id']; ?>" target="_blank"><i class="fa-solid fa-eye"></i> View</a>
+                                    </div>
+
+                                    <div class="cart mt-3">
+                                        <input type="hidden" name="product_name" value="<?php echo $row['item_name'] ?>">
+                                        <input type="hidden" name="product_prize" value="<?php echo $row['item_price'] ?>">
+                                        <input type="hidden" name="product_img" value="<?php echo $row['photo'] ?>">
+                                        <input class="btn btn-primary w-100" name="add_to_cart" type="submit" value="Add to Cart">
+                                    </div>
+                                </div>
+                            </form>
+
+                        <?php
+                    }
+                }
+                else{
+                    echo "NO DATA FOUND";
+                }
+            
+            ?>
+        </section>
+
+        <h1 class="title" id="pc">Apple TV Item's</h1>
+        <section id="products">
+
+            <?php 
+
+                // php code for display tv
+
+                include './configuration/connection.php';
+
+                $get_tv = "SELECT * FROM `tv`";
+
+                $run = mysqli_query($conn, $get_tv);
+
+                if(mysqli_num_rows($run) > 0){
+                    while($row = mysqli_fetch_assoc($run)){
+
+                        ?>
+                            <form action="" method="post">
+                                <div class="cards">
+                                    <div class="cards_img">
+                                        <img src="<?php echo './upload_img/'. $row['photo']; ?>" alt="">
+                                    </div>
+
+                                    <div class="cards_title">
+                                        <h1 class="product_name"><?php echo $row['item_name']; ?></h1>
+                                        <!-- <div class="details">
+                                            <h4><?php echo $row['item_cpu']; ?> Chip</h4>
+                                            <h4> <?php echo $row['item_ram']; ?> GB / <?php echo $row['item_storage'] ?> GB</h4>
+                                            <h4> <?php echo $row['screen_size']; ?> inch super ratina xdr display </h4>
+                                        </div> -->
+                                    </div>
+
+                                    <div class="price">
+                                        <h2>৳ <?php echo $row['item_price'] ?></h2>
+                                        <a class="btn btn-primary" href="view_tv_products.php?viewTv=<?php echo $row['id']; ?>" target="_blank"><i class="fa-solid fa-eye"></i> View</a>
                                     </div>
 
                                     <div class="cart mt-3">
