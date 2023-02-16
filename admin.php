@@ -114,6 +114,33 @@
 
 ?>
 
+<!-- for delete watch item -->
+<?php
+
+    include './configuration/connection.php';
+    if(isset($_GET['deleteWatch'])){
+        $watch_id = $_GET['deleteWatch'];
+        mysqli_query($conn, "DELETE FROM `watch` WHERE id = '$watch_id'");
+        header("location:admin.php");
+    }
+
+?>
+
+<!-- for delete tv item -->
+<?php
+
+    include './configuration/connection.php';
+    if(isset($_GET['deleteTv'])){
+        $tv_id = $_GET['deleteTv'];
+        mysqli_query($conn, "DELETE FROM `tv` WHERE id = '$tv_id'");
+        header("location:admin.php");
+    }
+
+?>
+
+
+
+
 
 <!-- for display admin name -->
 <?php
@@ -146,7 +173,6 @@
     
 
 ?>
-
 
 
 <!-- create new admin -->
@@ -243,7 +269,7 @@
             }
         }
 
-        elseif($catagory == "ipad"){
+        elseif($catagory == "tv"){
             $insert_products = "INSERT INTO `tv` (item_name, item_price, item_cpu, item_ram, item_storage, screen_size, photo) VALUES ('$item', '$price', '$cpu', '$ram', '$storage', '$screen', '$image')";
 
             move_uploaded_file($image_tmp_name, $image_folder);

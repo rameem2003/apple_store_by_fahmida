@@ -21,7 +21,7 @@
 
 # Project Overview
 
-### This is a dummy simple e-commerce project of <b>Fahmida Yeasmin</b>. Just uploading apple products and showing products into home page. And it is approved by <b>Mohammad Shahin Hossain</b> (Course Supervisor). 
+### This is a dummy simple e-commerce project of <b>Fahmida Yeasmin</b>. Uploading apple products, showing products into home page, view full details of apple products, upload apple products from admin page, create new admin.
 
 
 <br>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2023 at 05:34 AM
+-- Generation Time: Feb 16, 2023 at 04:25 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -148,6 +148,31 @@ INSERT INTO `macbook` (`id`, `item_name`, `item_price`, `item_cpu`, `item_ram`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tv`
+--
+
+CREATE TABLE `tv` (
+  `id` int(255) NOT NULL,
+  `item_name` varchar(255) NOT NULL,
+  `item_price` int(255) NOT NULL,
+  `item_cpu` varchar(255) NOT NULL,
+  `item_ram` varchar(255) NOT NULL,
+  `item_storage` varchar(255) NOT NULL,
+  `screen_size` varchar(255) NOT NULL,
+  `photo` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tv`
+--
+
+INSERT INTO `tv` (`id`, `item_name`, `item_price`, `item_cpu`, `item_ram`, `item_storage`, `screen_size`, `photo`) VALUES
+(1, 'Apple TV 3rd Gen', 24500, 'Bionic A15', '4', '128', '3.66', 'appletv3rdgen.jpg'),
+(3, 'Apple TV 2nd Gen', 19500, 'Bionic A14', '4', '128', '3.66', 'appletv2ndgen.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -166,6 +191,33 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `user_name`, `user_phone`, `user_email`, `user_password`) VALUES
 (2, 'Mahmood Hassan Rameem', 1409029641, 'rameem2019@gmail.com', '123'),
 (3, 'Fahmida Yeasmin', 14878978, 'fahmidayeas.me@gmail.com', '112');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `watch`
+--
+
+CREATE TABLE `watch` (
+  `id` int(11) NOT NULL,
+  `item_name` varchar(255) NOT NULL,
+  `item_price` int(255) NOT NULL,
+  `item_cpu` varchar(255) NOT NULL,
+  `item_ram` varchar(255) NOT NULL,
+  `item_storage` varchar(255) NOT NULL,
+  `screen_size` varchar(255) NOT NULL,
+  `photo` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `watch`
+--
+
+INSERT INTO `watch` (`id`, `item_name`, `item_price`, `item_cpu`, `item_ram`, `item_storage`, `screen_size`, `photo`) VALUES
+(1, 'Apple Watch Series 7', 40000, 'Apple S7', '1', '32', '1.9', 'apple-watch-series-7-aluminum.jpg'),
+(2, 'Apple Watch Series 8', 81000, 'Apple S8', '1', '32', '1.9', 'apple-watch-8.jpg'),
+(3, 'Apple Watch Series 6', 35000, 'Apple S6', '1', '32', '1.78', 'apple-watch-s6-steel.jpg'),
+(5, 'Apple Watch Series 5', 32000, 'Apple S5', '1', '32', '1.78', 'apple-watch-series-5.jpg');
 
 --
 -- Indexes for dumped tables
@@ -202,9 +254,21 @@ ALTER TABLE `macbook`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tv`
+--
+ALTER TABLE `tv`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `watch`
+--
+ALTER TABLE `watch`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -221,7 +285,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `ipad`
@@ -242,10 +306,22 @@ ALTER TABLE `macbook`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT for table `tv`
+--
+ALTER TABLE `tv`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `watch`
+--
+ALTER TABLE `watch`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

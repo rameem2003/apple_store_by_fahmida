@@ -32,14 +32,14 @@
         </div>
 
         <div class="col-md-2 my-2">
-            <a href="#">
+            <a href="./watch.php">
             <i class="fas fa-clock"></i>
                 <p>Apple Watch</p>
             </a>
         </div>
 
         <div class="col-md-2 my-2">
-            <a href="#">
+            <a href="./appleTv.php">
                 <i class="fas fa-tv"></i>
                 <p>Apple TV</p>
             </a>
