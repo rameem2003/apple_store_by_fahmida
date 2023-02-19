@@ -159,8 +159,9 @@
 
         </div>
 
-        <div class="col-md-12 mt-5">
+        <div class="col-md-12 d-flex align-items-center justify-content-between mt-5">
             <a class="btn btn-danger" onclick="return confirm('Are you sure you want to delete all ?')" href="./cart.php?deleteAll">Remove all items</a>
+            <a class="btn btn-success" href="./checkout.php">Checkout Now</a>
         </div>
 
 
