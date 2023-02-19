@@ -2,6 +2,13 @@
 
 include './configuration/connection.php';
 
+// press continue
+if (isset($_GET['continue'])) {
+    $delete_cart_data = "DELETE FROM `cart`";
+    mysqli_query($conn, $delete_cart_data);
+    header("location:./");
+}
+
 // how many items in cart
 $items  = "SELECT * FROM `cart`";
 $items_query = mysqli_query($conn, $items);
@@ -18,9 +25,9 @@ if (isset($_POST['order'])) {
 
     $cart_query = mysqli_query($conn, "SELECT * FROM `cart`");
     $product_total_prize = 0;
-    if(mysqli_num_rows($cart_query) > 0){
-        while($item = mysqli_fetch_assoc($cart_query)){
-            $product_name[] = $item['name'] . " (" . $item['quantity']. " )";
+    if (mysqli_num_rows($cart_query) > 0) {
+        while ($item = mysqli_fetch_assoc($cart_query)) {
+            $product_name[] = $item['name'] . " (" . $item['quantity'] . ")";
             $product_prize = $item['prize'] * $item['quantity'];
             $product_total_prize = $product_total_prize + $product_prize;
         }
@@ -30,25 +37,25 @@ if (isset($_POST['order'])) {
     $detail_query = mysqli_query($conn, "INSERT INTO `checkout` (c_name, phone, email, payment, address, city, products, total_prize) VALUES ('$c_name', '$phone', '$email', '$payment', '$address', '$city', '$total_product', '$product_total_prize')");
 
 
-    if($cart_query && $detail_query){
+    if ($cart_query && $detail_query) {
         echo "
         <div class='order-container'>
             <div class='order'>
                 <h3 class='text-center'>Thank you for your shopping</h3>
                 <div class='order-detail'>
-                    <span>". $total_product ."</span>
+                    <span>" . $total_product . "</span>
                     <h3 class='text-center'>Total: " . $product_total_prize . " ৳</h3>
                 </div>
                 <div class='customer'>
-                    <h4>Name: ". $c_name ." </h4>
-                    <h4>Phone: ". $phone ."</h4>
-                    <h4>Email: ". $email ."</h4>
-                    <h4>Address: ". $address ."</h4>
-                    <h4>Payment: ". $payment ."</h4>
-                    <h4>City: ". $city ."</h4>
+                    <h4>Name: " . $c_name . " </h4>
+                    <h4>Phone: " . $phone . "</h4>
+                    <h4>Email: " . $email . "</h4>
+                    <h4>Address: " . $address . "</h4>
+                    <h4>City: " . $city . "</h4>
+                    <h4>Payment: " . $payment . "</h4>
                 </div>
         
-                <a class='btn btn-primary' href='./'>Continue</a>
+                <a class='btn btn-primary' href='./checkout.php?continue'>Continue</a>
             </div>
         </div>
         
