@@ -297,7 +297,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin | Apple Store</title>
+    <title>Admin || Apple Store</title>
     <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
 
     <!-- font awesome -->
@@ -316,6 +316,7 @@
     <button id="addProductsBtn">Add products</button>
     <button id="newAdmin">New Admin</button>
     <a class="mainLogout" href="admin.php?logout=<?php echo $admin_id ?>">Logout</a>
+    <a class="report" href="./sales_report.php">View Report</a>
 
     <!-- products upload -->
     <form id="productsForm" action="" method="post" enctype="multipart/form-data">

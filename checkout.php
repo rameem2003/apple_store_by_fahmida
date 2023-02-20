@@ -22,6 +22,7 @@ if (isset($_POST['order'])) {
     $payment = $_POST['payment'];
     $address = $_POST['address'];
     $city = $_POST['city'];
+    $salesID = rand();
 
     $cart_query = mysqli_query($conn, "SELECT * FROM `cart`");
     $product_total_prize = 0;
@@ -34,7 +35,7 @@ if (isset($_POST['order'])) {
     }
 
     $total_product = implode(', ', $product_name);
-    $detail_query = mysqli_query($conn, "INSERT INTO `checkout` (c_name, phone, email, payment, address, city, products, total_prize) VALUES ('$c_name', '$phone', '$email', '$payment', '$address', '$city', '$total_product', '$product_total_prize')");
+    $detail_query = mysqli_query($conn, "INSERT INTO `checkout` (c_name, phone, email, payment, address, city, products, total_prize, salesID) VALUES ('$c_name', '$phone', '$email', '$payment', '$address', '$city', '$total_product', '$product_total_prize', '$salesID')");
 
 
     if ($cart_query && $detail_query) {
@@ -47,6 +48,7 @@ if (isset($_POST['order'])) {
                     <h3 class='text-center'>Total: " . $product_total_prize . " ৳</h3>
                 </div>
                 <div class='customer'>
+                    <h4>Sales ID: " . $salesID . " </h4>
                     <h4>Name: " . $c_name . " </h4>
                     <h4>Phone: " . $phone . "</h4>
                     <h4>Email: " . $email . "</h4>

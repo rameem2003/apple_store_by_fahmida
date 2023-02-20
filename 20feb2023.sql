@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 16, 2023 at 04:25 AM
+-- Generation Time: Feb 20, 2023 at 04:51 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -55,6 +55,37 @@ CREATE TABLE `cart` (
   `imege` varchar(255) NOT NULL,
   `quantity` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `checkout`
+--
+
+CREATE TABLE `checkout` (
+  `id` int(255) NOT NULL,
+  `c_name` varchar(255) NOT NULL,
+  `phone` varchar(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `payment` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `products` varchar(255) DEFAULT NULL,
+  `total_prize` int(255) DEFAULT NULL,
+  `salesID` int(255) DEFAULT NULL,
+  `time` timestamp(6) NOT NULL DEFAULT current_timestamp(6)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `checkout`
+--
+
+INSERT INTO `checkout` (`id`, `c_name`, `phone`, `email`, `payment`, `address`, `city`, `products`, `total_prize`, `salesID`, `time`) VALUES
+(12, 'Fahmida Yeasmin', '01828810843', 'fahmidayeasmin.me@gmail.com', 'credit', 'Vashantek bajar', 'Dhaka', 'Iphone 14 Pro Max (1 ), Macbook Pro 14 (1 )', 486000, 1498077997, '2023-02-20 02:56:55.377008'),
+(13, 'Jahedul Islam Rasel', '4864874897', 'rasel@gmail.com', 'credit', 'Badda', 'Dhaka', 'Apple Watch Series 6 (1)', 35000, 1132363175, '2023-02-20 02:56:55.377008'),
+(15, 'Fahmida Yeasmin', '01828810843', 'rameem2019@gmail.com', 'cod', 'Vashantek bajar', 'Dhaka', 'IPad Pro M2 (1), Iphone 14 (1)', 225500, 1814787234, '2023-02-20 02:56:55.377008'),
+(16, 'Mahmood Hassan Rameem', '01409029641', 'rameem2019@gmail.com', 'credit', '21', 'Mirpur', 'Iphone 14 Pro (1), Macbook Pro 14 (2), IPad 10 9th Gen (1), Apple Watch Series 8 (1)', 884000, 944209189, '2023-02-20 03:14:28.650534'),
+(17, 'Pabel Pathan', '01780415286', '', 'credit', 'Dhaka', 'Dhaka', 'Iphone 14 Pro Max (1), Macbook Pro 13 (1), IPad Pro M2 (1), Apple TV 2nd Gen (1)', 454000, 1563507352, '2023-02-20 03:33:23.000954');
 
 -- --------------------------------------------------------
 
@@ -236,6 +267,12 @@ ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `checkout`
+--
+ALTER TABLE `checkout`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `ipad`
 --
 ALTER TABLE `ipad`
@@ -285,7 +322,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+
+--
+-- AUTO_INCREMENT for table `checkout`
+--
+ALTER TABLE `checkout`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `ipad`
