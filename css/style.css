@@ -25,6 +25,11 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999;
 }
 
 header .logo{
@@ -83,6 +88,7 @@ header #btn{
 }
 
 #cover{
+    margin-top: 85px;
     height: 80vh;
     width: 100%;
     background-image: url("../img/a.jpeg");
