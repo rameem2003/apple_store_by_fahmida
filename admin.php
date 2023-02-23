@@ -158,7 +158,7 @@
     if(isset($_GET['logout'])){
         session_destroy();
         unset($admin_id);
-        header("location:index.php");
+        header("location:./");
     }
 
 
@@ -407,6 +407,7 @@
                                 <td><?php echo $iphone_row['screen_size']; ?> inch</td>
                                 <td><a href="./admin.php?deletePhone=<?php echo $iphone_row['id']; ?>"><i class="fa-solid fa-trash"></i></a></td>
                                 <td><a target="_blank" href="./view_iphone_products.php?viewPhone=<?php echo $iphone_row['id']; ?>"><i class="fas fa-eye"></i></a></td>
+                                <td><a href="./updates/update_iphone.php?upIphone=<?php echo $iphone_row['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a></td>
                             </tr>
 
                         <?php 
@@ -461,6 +462,7 @@
                                 <td><?php echo $computer_row['screen_size']; ?> inch</td>
                                 <td><a href="./admin.php?deleteComputer=<?php echo $computer_row['id']; ?>"><i class="fa-solid fa-trash"></i></a></td>
                                 <td><a target="_blank" href="./view_computer_products.php?viewComputer=<?php echo $computer_row['id']; ?>"><i class="fas fa-eye"></i></a></td>
+                                <td><a href="./updates/update_computer.php?upComputer=<?php echo $computer_row['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a></td>
                             </tr>
 
                         <?php 
@@ -515,6 +517,7 @@
                                 <td><?php echo $ipad_row['screen_size']; ?> inch</td>
                                 <td><a href="./admin.php?deleteIpad=<?php echo $ipad_row['id']; ?>"><i class="fa-solid fa-trash"></i></a></td>
                                 <td><a target="_blank" href="./view_ipad_products.php?viewIpad=<?php echo $ipad_row['id']; ?>"><i class="fas fa-eye"></i></a></td>
+                                <td><a href="./updates/update_ipad.php?upIpad=<?php echo $ipad_row['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a></td>
                             </tr>
 
                         <?php 
@@ -569,6 +572,7 @@
                                 <td><?php echo $watch_row['screen_size']; ?> inch</td>
                                 <td><a href="./admin.php?deleteWatch=<?php echo $watch_row['id']; ?>"><i class="fa-solid fa-trash"></i></a></td>
                                 <td><a target="_blank" href="./view_watch_products.php?viewWatch=<?php echo $watch_row['id']; ?>"><i class="fas fa-eye"></i></a></td>
+                                <td><a href="./updates/update_watch.php?upWatch=<?php echo $watch_row['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a></td>
                             </tr>
 
                         <?php 
@@ -622,6 +626,7 @@
                                 <td><?php echo $tv_row['screen_size']; ?> inch</td>
                                 <td><a href="./admin.php?deleteTv=<?php echo $tv_row['id']; ?>"><i class="fa-solid fa-trash"></i></a></td>
                                 <td><a target="_blank" href="./view_tv_products.php?viewTv=<?php echo $tv_row['id']; ?>"><i class="fas fa-eye"></i></a></td>
+                                <td><a href="./updates/update_tv.php?upTv=<?php echo $tv_row['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a></td>
                             </tr>
 
                         <?php 
