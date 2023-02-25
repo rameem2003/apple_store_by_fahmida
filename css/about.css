@@ -9,74 +9,13 @@ body{
     background-color: gray;
 }
 
-header{
-    background-color: black;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-header .logo{
-    width: 20%;
-}
-header nav{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 80%;
-}
-
-.logo img{ 
-    height: 80px;
-    width: 100px;
-    margin-top:5px ;
-    margin-left: 10px;
-}
-
-header nav ul{
-    list-style-type: none;
-    display: flex;
-    align-items: center;
-}
-
-header nav ul .profile_name{
-    color: white;
-    font-size: 18px;
-}
-
-header nav ul li a{
-    text-decoration: none;
-    color: white;
-    display: block;
-    font-size: 20px;
-    padding: 10px 20px;
-}
-nav ul li a:hover{
-    color: crimson;
-    background-color: black;
-    border-radius: 15px;
-
-
-}
-
-
-header .menu_btn{
-    font-size: 40px;
-    color: white;
-    display: none;
-}
-
-header #btn{
-    display: none;
-}
-
 #wrapper{
     background-color: white;
     text-align: center;
     padding: 20px;
     border-radius: 10px;
     width: 1000px;
-    margin: 50px auto;
+    margin: 120px auto;
 }
 
 #wrapper .profiles{

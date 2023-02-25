@@ -60,35 +60,7 @@
             <h1>Apple Store Site Developer</h1>
         </div>
 
-        <div class="profiles">
-            <div class="profile">
-                <div class="img">
-                    <div class="box">
-                        <img src="https://rameem2003.github.io/oursite/img/gallery/fahmida.jpg" alt="fahmida">
-                    </div>
-                </div>
-    
-                <div class="details">
-                    <h3>Fahmida Yeasmin</h3>
-                    <p class="tag">Computer Technology</p>
-                    <p>Project Owner</p>
-                </div>
-            </div>
-
-            <div class="profile">
-                <div class="img">
-                    <div class="box">
-                        <img src="./img/rameem_edit.jpg" alt="rameem">
-                    </div>
-                </div>
-    
-                <div class="details">
-                    <h3>Mahmood Hassan Rameem</h3>
-                    <p class="tag">Computer Technology</p>
-                    <p>Associate Partner</p>
-                </div>
-            </div>
-        </div>
+        <div class="profiles" id="profiles"></div>
 
 
         <div class="github">
@@ -109,5 +81,37 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <script>
+        fetch('https://rameem2003.github.io/js_with_fahmida/RameemFahmida.json').then(response => response.json()).then(data => {
+            const profilesection = document.getElementById("profiles")
+            console.log(profilesection);
+            console.log(data.developers);
+
+            let developerData = data.developers;
+
+            developerData.map(developer => {
+                const profile = document.createElement("div");
+                profile.classList.add("profile");
+                profile.innerHTML = `
+                        <div class="img">
+                            <div class="box">
+                                <img src="${developer.img}" alt="${developer.name}">
+                            </div>
+                        </div>
+            
+                        <div class="details">
+                            <h3>${developer.name}</h3>
+                            <p class="tag">Computer Technology</p>
+                            <p>${developer.State}</p>
+                            <p>Contribution: ${developer.contribution}</p>
+                        </div>
+                `;
+
+                profilesection.appendChild(profile)
+            })
+        })
+    </script>
 </body>
 </html>
