@@ -1,0 +1,56 @@
+footer{
+    background-color: rgb(34, 20, 20);
+    margin: 0;
+    padding-top: 10px;
+    color: white;
+}
+
+.followUs ul, .payment ul{
+    list-style-type: none;
+    display: flex;
+    margin: 20px 0;
+}
+
+.followUs ul li, .payment ul li{
+    list-style-type: none;
+    margin-right: 20px;
+}
+
+.followUs ul li a{
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.payment ul li a{
+    text-decoration: none;
+}
+
+.payment ul li a img{
+    width: 80px;
+    height: 50px;
+    border-radius: 10px
+}
+
+
+@media screen and (max-width: 500px){
+    .followUs ul, .payment ul{
+        justify-content: center;
+    }
+
+    .followUs ul li, .payment ul li{
+        margin: 0 20px;
+    }
+
+    footer .middle_footer h1{
+        font-size: 30px;
+    }
+
+    .payment ul li a img{
+        width: 35px;
+        height: 30px;
+    }
+}

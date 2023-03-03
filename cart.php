@@ -66,7 +66,7 @@
     <?php include './login_system.php' ?>
 
 
-    <main class="container p-4 bg-light mt-5 rounded" id="cart">
+    <main class="container p-4 bg-light rounded" id="cart">
         <div class="row">
             <div class="col-md-7">
                 <h1>Cart</h1>
@@ -167,6 +167,8 @@
 
 
     </main>
+
+    <?php include './footer.php'; ?>
 
 
 
