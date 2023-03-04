@@ -291,6 +291,22 @@
 ?>
 
 
+<!-- view report -->
+<?php 
+
+include './configuration/connection.php';
+
+$report_query = "SELECT * FROM `checkout`";
+$run_report_query = mysqli_query($conn, $report_query);
+$total_sales = mysqli_num_rows($run_report_query);
+
+// system time
+$date = date("d/m/Y");
+$time = date("h:m:sa")
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -313,10 +329,78 @@
 </head>
 <body>
 
-    <button id="addProductsBtn">Add products</button>
-    <button id="newAdmin">New Admin</button>
-    <a class="mainLogout" href="admin.php?logout=<?php echo $admin_id ?>">Logout</a>
-    <a class="report" href="./sales_report.php">View Report</a>
+    <!-- header section -->
+    <header>
+
+        <div class="logo">
+            <h1 class="text-white" style="text-transform: capitalize;">Welcome <?php echo $admin_name['admin_user']; ?></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="" id="addProductsBtn">Add Products</a></li>
+                <li><a href="" id="newAdmin">New Admin</a></li>
+                <li><a class="report" href="" id="reportBtn">View Report</a></li>
+                <li><a class="mainLogout" href="admin.php?logout=<?php echo $admin_id ?>">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- header section end-->
+
+    <!-- report -->
+    <div class="report" id="report">
+        <div class="head">
+            <h1>Sales Report</h1>
+            <!-- <h3 class="welcome">Sales Report</h3> -->
+            <h3>Total sales <?php echo $total_sales ?></h3>
+            <h3>Current Time is: <?php echo $date . "," . $time; ?></h3>
+        </div>
+
+        <table class="table table-hover table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Sales ID</th>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Products</th>
+                    <th scope="col">Total Prize</th>
+                    <th scope="col">Payment</th>
+                    <th scope="col">Time</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            <?php
+
+                // for display all iphones in table
+                if(mysqli_num_rows($run_report_query) > 0){
+                    while($sales = mysqli_fetch_assoc($run_report_query)){
+                        ?>
+
+                            <tr>
+                                <th scope="row"><?php echo $sales['salesID']; ?></</th>
+                                <td><?php echo $sales['c_name']; ?></td>
+                                <td><?php echo $sales['phone']; ?></td>
+                                <td><?php echo $sales['address']. ", " . $sales['city']; ?></</td>
+                                <td><?php echo $sales['products']; ?></td>
+                                <td><?php echo $sales['total_prize']; ?> ৳</td>
+                                <td><?php echo $sales['payment']; ?></td>
+                                <td><?php echo $sales['time']; ?></td>
+                            </tr>
+
+                        <?php 
+                    }
+                }else{
+                    echo "Report Empty";
+                }
+
+            ?>
+                
+            </tbody>
+        </table>
+    </div>
+    <!-- report end -->
+    
 
     <!-- products upload -->
     <form id="productsForm" action="" method="post" enctype="multipart/form-data">
@@ -644,13 +728,18 @@
     <!-- list of apple watch end -->
 
 
+    <?php include './footer.php'; ?>
+
+
 
     <script>
         const addProductsBtn = document.getElementById("addProductsBtn");
         const newAdmin = document.getElementById("newAdmin");
         const closeAdminForm = document.getElementById("closeAdminForm");
+        const reportBtn = document.getElementById("reportBtn");
         
-        addProductsBtn.addEventListener("click", () => {
+        addProductsBtn.addEventListener("click", (e) => {
+            e.preventDefault();
             const productsForm = document.getElementById("productsForm");
             document.getElementById("iphone_list").classList.toggle("blur");
             document.getElementById("computer_list").classList.toggle("blur");
@@ -658,11 +747,22 @@
         });
 
 
-        newAdmin.addEventListener("click", () => {
+        newAdmin.addEventListener("click", (e) => {
+            e.preventDefault();
+            console.log(e);
             const adminForm = document.getElementById("adminForm");
             document.getElementById("iphone_list").classList.toggle("blur");
             document.getElementById("computer_list").classList.toggle("blur");
             adminForm.classList.toggle("expand");
+        })
+
+        reportBtn.addEventListener("click" , (e) => {
+            e.preventDefault();
+            const report = document.getElementById("report");
+            document.getElementById("iphone_list").classList.toggle("blur");
+            document.getElementById("computer_list").classList.toggle("blur");
+            report.classList.toggle("expand");
+
         })
         
         closeAdminForm.addEventListener("click", () => {
